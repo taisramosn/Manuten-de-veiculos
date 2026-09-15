@@ -219,14 +219,6 @@ As imagens das telas serão adicionadas conforme o desenvolvimento do projeto.
 
 🚧 Em desenvolvimento.
 
-### Gastos
-
-🚧 Em desenvolvimento.
-
-### Próximas Manutenções
-
-🚧 Em desenvolvimento.
-
 ---
 
 ## 👩‍💻 Autora
