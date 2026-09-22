@@ -1,131 +1,263 @@
 # 🛠️ Especificação Técnica (Tech Spec) - CarCare
 
-Este documento detalha a arquitetura técnica, o modelo de dados e os contratos de API (via JSON Server) necessários para o funcionamento do sistema CarCare.
+Este documento detalha a arquitetura técnica, o modelo de dados, a estrutura de armazenamento e a API utilizada pelo sistema CarCare.
 
-## 1. Modelo de Dados (Diagrama ER)
+O CarCare é uma aplicação web desenvolvida para auxiliar o proprietário no cadastro e acompanhamento das informações de seus veículos e respectivas manutenções.
 
-O Diagrama Entidade-Relacionamento (DER) representa a estrutura do banco de dados simulado (`db.json`) e como as informações do sistema se relacionam.
+A aplicação utiliza uma API local simulada pelo **JSON Server**, utilizada principalmente para o cadastro e consulta dos veículos.
 
-O CarCare possui três entidades principais:
+## 1. Arquitetura da Aplicação
 
-* **Veículos:** Armazena as informações dos veículos cadastrados.
-* **Manutenções:** Registra os serviços realizados nos veículos.
-* **Próximas Manutenções:** Armazena os serviços que deverão ser realizados futuramente.
+O CarCare utiliza uma arquitetura simples composta por uma aplicação web no lado do cliente e uma API local simulada.
 
-```mermaid
-erDiagram
-    VEICULOS ||--o{ MANUTENCOES : possui
-    VEICULOS ||--o{ PROXIMAS_MANUTENCOES : possui
-
-    VEICULOS {
-        string id
-        string marca
-        string modelo
-        int ano
-        string placa
-        int quilometragem
-        string combustivel
-    }
-
-    MANUTENCOES {
-        string id
-        string veiculoId
-        string tipo
-        string data
-        int quilometragem
-        string servico
-        string pecas
-        float valor
-        string observacoes
-    }
-
-    PROXIMAS_MANUTENCOES {
-        string id
-        string veiculoId
-        string tipo
-        string dataPrevista
-        int quilometragemPrevista
-        string status
-    }
+```text
+┌─────────────────────────────────────────────┐
+│                  CarCare                    │
+│              Aplicação Web                  │
+├─────────────────────────────────────────────┤
+│                                             │
+│  HTML + CSS + JavaScript                    │
+│                                             │
+│  ├── Dashboard                              │
+│  ├── Veículos                               │
+│  ├── Cadastro de Veículo                    │
+│  ├── Detalhes do Veículo                    │
+│  └── Manutenções                            │
+│                                             │
+└──────────────────────┬──────────────────────┘
+                       │
+                       │ HTTP / Fetch
+                       ▼
+┌─────────────────────────────────────────────┐
+│              JSON Server                    │
+│                API Fake                     │
+├─────────────────────────────────────────────┤
+│                                             │
+│  /veiculos                                  │
+│                                             │
+└──────────────────────┬──────────────────────┘
+                       │
+                       ▼
+                  ┌──────────┐
+                  │ db.json  │
+                  └──────────┘
 ```
 
-## 2. Dicionário de Dados
+### Responsabilidades do Front-end
 
-Breve explicação das entidades principais:
+O front-end é responsável por:
 
-* **Veículos:** Responsável por armazenar os dados básicos dos veículos cadastrados.
+- Apresentar a interface do sistema.
+- Permitir o cadastro de veículos.
+- Permitir a visualização dos veículos cadastrados.
+- Permitir a visualização dos detalhes de um veículo.
+- Apresentar informações relacionadas às manutenções.
+- Apresentar o histórico de manutenção.
+- Apresentar informações de próxima revisão.
+- Apresentar informações resumidas no Dashboard.
+- Realizar requisições para a API.
+- Validar dados antes do envio.
+- Apresentar mensagens de sucesso ou erro.
 
-  * `id`: Identificador único gerado pelo JSON Server.
-  * `marca`: Marca do veículo.
-  * `modelo`: Modelo do veículo.
-  * `ano`: Ano de fabricação do veículo.
-  * `placa`: Placa do veículo.
-  * `quilometragem`: Quilometragem atual do veículo.
-  * `combustivel`: Tipo de combustível utilizado pelo veículo.
+### Responsabilidades do JSON Server
 
-* **Manutenções:** Registra o histórico de serviços realizados nos veículos.
+O JSON Server é utilizado para:
 
-  * `id`: Identificador único da manutenção.
-  * `veiculoId`: Chave estrangeira que vincula a manutenção ao veículo.
-  * `tipo`: Tipo da manutenção realizada, como troca de óleo, freios, pneus ou revisão.
-  * `data`: Data em que a manutenção foi realizada.
-  * `quilometragem`: Quilometragem do veículo no momento da manutenção.
-  * `servico`: Descrição do serviço realizado.
-  * `pecas`: Peças substituídas durante a manutenção.
-  * `valor`: Valor total gasto na manutenção.
-  * `observacoes`: Informações adicionais sobre o serviço.
+- Simular uma API REST.
+- Receber requisições HTTP.
+- Armazenar os veículos no arquivo `db.json`.
+- Permitir consultas aos veículos cadastrados.
+- Permitir cadastro de novos veículos.
+- Permitir atualização de veículos.
+- Permitir exclusão de veículos.
 
-* **Próximas Manutenções:** Armazena as manutenções programadas para o futuro.
+### Responsabilidade do `db.json`
 
-  * `id`: Identificador único da manutenção futura.
-  * `veiculoId`: Chave estrangeira que vincula a manutenção futura ao veículo.
-  * `tipo`: Tipo de manutenção que deverá ser realizada.
-  * `dataPrevista`: Data prevista para realização da manutenção.
-  * `quilometragemPrevista`: Quilometragem prevista para realização da manutenção.
-  * `status`: Situação da manutenção, podendo ser "EM_DIA", "PROXIMA" ou "ATRASADA".
+O arquivo `db.json` representa o armazenamento de dados utilizado pelo JSON Server durante o desenvolvimento do projeto.
 
-### Regras de relacionamento
+## 2. Modelo de Dados
 
-* Um **veículo** pode possuir várias **manutenções**.
-* Um **veículo** pode possuir várias **próximas manutenções**.
-* Cada **manutenção** pertence a apenas um veículo.
-* Cada **próxima manutenção** pertence a apenas um veículo.
+O modelo de dados principal do CarCare é baseado na entidade:
 
-## 3. Rotas da API (JSON Server)
+- **Veículos**
+
+As informações relacionadas à próxima revisão são armazenadas dentro do próprio veículo.
+
+As informações de manutenção fazem parte da aplicação e do acompanhamento do veículo, mas não possuem uma API independente neste projeto.
+
+### 2.1 Veículos
+
+A entidade `veiculos` armazena as informações dos veículos cadastrados pelo proprietário.
+
+Cada veículo pode possuir informações como:
+
+- Identificador.
+- Marca.
+- Modelo.
+- Ano.
+- Placa.
+- Quilometragem.
+- Combustível.
+- Próxima revisão, quando houver.
+
+### 2.2 Próxima revisão
+
+A próxima revisão não possui uma entidade independente.
+
+Ela é armazenada como uma informação relacionada ao próprio veículo.
+
+Pode conter:
+
+- Data prevista.
+- Quilometragem prevista.
+
+Exemplo:
+
+```json
+"proximaRevisao": {
+  "data": "2026-11-10",
+  "quilometragem": 95000
+}
+```
+
+O sistema não precisa realizar cálculos complexos para determinar a próxima revisão.
+
+## 3. Dicionário de Dados
+
+### 3.1 Entidade `veiculos`
+
+| Campo | Tipo | Descrição |
+|---|---|---|
+| `id` | string | Identificador único do veículo |
+| `marca` | string | Marca do veículo |
+| `modelo` | string | Modelo do veículo |
+| `ano` | number | Ano de fabricação do veículo |
+| `placa` | string | Placa do veículo |
+| `quilometragem` | number | Quilometragem atual do veículo |
+| `combustivel` | string | Tipo de combustível utilizado |
+| `proximaRevisao` | object | Informações da próxima revisão, quando houver |
+| `proximaRevisao.data` | string | Data prevista para a próxima revisão |
+| `proximaRevisao.quilometragem` | number | Quilometragem prevista para a próxima revisão |
+
+## 4. Estrutura das Informações de Manutenção
+
+As informações de manutenção fazem parte da experiência do sistema, sendo utilizadas para apresentar o histórico e os serviços relacionados aos veículos.
+
+Entre as informações apresentadas podem estar:
+
+- Tipo de manutenção.
+- Data.
+- Quilometragem.
+- Serviço realizado.
+- Peças utilizadas.
+- Oficina.
+- Valor.
+- Status.
+- Observações.
+
+Essas informações podem ser utilizadas nas telas de:
+
+- Dashboard.
+- Detalhes do veículo.
+- Histórico de manutenções.
+- Área de Manutenções.
+
+Neste projeto, as manutenções **não possuem endpoints próprios na API JSON Server**.
+
+Portanto, não existem rotas como:
+
+```text
+/manutencoes
+/proximasManutencoes
+```
+
+A API do projeto fica concentrada no cadastro e gerenciamento dos veículos.
+
+## 5. Rotas da API
 
 A aplicação utiliza uma API local simulada pelo JSON Server.
 
-Abaixo estão os principais endpoints:
+Durante o desenvolvimento, a API poderá ser executada em:
 
-### Veículos
+```text
+http://localhost:3000
+```
 
-* `GET /veiculos` - Retorna a lista de veículos cadastrados.
-* `GET /veiculos/:id` - Retorna um veículo específico.
-* `POST /veiculos` - Cadastra um novo veículo.
-* `PUT /veiculos/:id` - Atualiza os dados de um veículo.
-* `DELETE /veiculos/:id` - Remove um veículo.
+A principal coleção disponibilizada pela API é:
 
-### Manutenções
+```text
+/veiculos
+```
 
-* `GET /manutencoes` - Retorna todas as manutenções.
-* `GET /manutencoes/:id` - Retorna uma manutenção específica.
-* `GET /manutencoes?veiculoId=1` - Retorna as manutenções de um veículo específico.
-* `POST /manutencoes` - Cadastra uma nova manutenção.
-* `PUT /manutencoes/:id` - Atualiza uma manutenção.
-* `DELETE /manutencoes/:id` - Remove uma manutenção.
+### 5.1 Listar veículos
 
-### Próximas Manutenções
+```http
+GET /veiculos
+```
 
-* `GET /proximasManutencoes` - Retorna todas as próximas manutenções.
-* `GET /proximasManutencoes/:id` - Retorna uma próxima manutenção específica.
-* `GET /proximasManutencoes?veiculoId=1` - Retorna as próximas manutenções de um veículo.
-* `POST /proximasManutencoes` - Cadastra uma próxima manutenção.
-* `PUT /proximasManutencoes/:id` - Atualiza uma próxima manutenção.
-* `DELETE /proximasManutencoes/:id` - Remove uma próxima manutenção.
+Retorna todos os veículos cadastrados.
 
-## 4. Estrutura do Banco de Dados (db.json)
+### 5.2 Consultar um veículo
 
-Esta é a representação em formato JSON do banco de dados simulado. Essa estrutura servirá de contexto para ferramentas de IA e para o JSON Server inicializar a API Fake.
+```http
+GET /veiculos/:id
+```
+
+Retorna um veículo específico.
+
+Exemplo:
+
+```http
+GET /veiculos/1
+```
+
+### 5.3 Cadastrar veículo
+
+```http
+POST /veiculos
+```
+
+Cria um novo veículo.
+
+### 5.4 Atualizar veículo
+
+```http
+PUT /veiculos/:id
+```
+
+Atualiza os dados de um veículo existente.
+
+Exemplo:
+
+```http
+PUT /veiculos/1
+```
+
+### 5.5 Excluir veículo
+
+```http
+DELETE /veiculos/:id
+```
+
+Remove um veículo cadastrado.
+
+## 6. Estrutura do Banco de Dados
+
+O armazenamento utilizado pelo JSON Server é representado pelo arquivo:
+
+```text
+db.json
+```
+
+A estrutura principal será:
+
+```json
+{
+  "veiculos": []
+}
+```
+
+### Exemplo
 
 ```json
 {
@@ -137,39 +269,316 @@ Esta é a representação em formato JSON do banco de dados simulado. Essa estru
       "ano": 2015,
       "placa": "ABC1D23",
       "quilometragem": 87420,
-      "combustivel": "Flex"
-    }
-  ],
-  "manutencoes": [
-    {
-      "id": "1",
-      "veiculoId": "1",
-      "tipo": "Troca de óleo",
-      "data": "2026-08-10",
-      "quilometragem": 85000,
-      "servico": "Troca de óleo do motor",
-      "pecas": "Óleo do motor e filtro de óleo",
-      "valor": 280.00,
-      "observacoes": "Próxima troca recomendada aos 95.000 km."
-    }
-  ],
-  "proximasManutencoes": [
-    {
-      "id": "1",
-      "veiculoId": "1",
-      "tipo": "Troca de óleo",
-      "dataPrevista": "2026-11-10",
-      "quilometragemPrevista": 95000,
-      "status": "PROXIMA"
-    },
-    {
-      "id": "2",
-      "veiculoId": "1",
-      "tipo": "Revisão",
-      "dataPrevista": "2027-02-10",
-      "quilometragemPrevista": 100000,
-      "status": "EM_DIA"
+      "combustivel": "Flex",
+      "proximaRevisao": {
+        "data": "2026-11-10",
+        "quilometragem": 95000
+      }
     }
   ]
 }
 ```
+
+## 7. Contrato de Dados da API
+
+### 7.1 Cadastro de veículo
+
+Exemplo de dados enviados para a API:
+
+```json
+{
+  "marca": "Chevrolet",
+  "modelo": "Onix",
+  "ano": 2015,
+  "placa": "ABC1D23",
+  "quilometragem": 87420,
+  "combustivel": "Flex",
+  "proximaRevisao": {
+    "data": "2026-11-10",
+    "quilometragem": 95000
+  }
+}
+```
+
+O `id` do veículo será utilizado para identificar o registro posteriormente.
+
+### 7.2 Atualização de veículo
+
+A atualização utiliza os mesmos campos do cadastro.
+
+Exemplo:
+
+```json
+{
+  "marca": "Chevrolet",
+  "modelo": "Onix",
+  "ano": 2015,
+  "placa": "ABC1D23",
+  "quilometragem": 90000,
+  "combustivel": "Flex",
+  "proximaRevisao": {
+    "data": "2027-02-10",
+    "quilometragem": 100000
+  }
+}
+```
+
+## 8. Fluxo de Dados
+
+O fluxo básico da aplicação ocorre da seguinte forma:
+
+```text
+┌───────────────┐
+│ Proprietário  │
+└───────┬───────┘
+        │
+        │ Interage com a interface
+        ▼
+┌─────────────────────┐
+│ Front-end CarCare   │
+│ HTML/CSS/JavaScript │
+└─────────┬───────────┘
+          │
+          │ Requisição HTTP
+          ▼
+┌─────────────────────┐
+│    JSON Server      │
+│       API           │
+└─────────┬───────────┘
+          │
+          │ Leitura / escrita
+          ▼
+┌─────────────────────┐
+│       db.json       │
+│      veiculos       │
+└─────────────────────┘
+```
+
+### Exemplo: cadastro de veículo
+
+1. O proprietário acessa o formulário de cadastro.
+2. O proprietário preenche os dados do veículo.
+3. O JavaScript valida os dados.
+4. O front-end envia uma requisição `POST /veiculos`.
+5. O JSON Server recebe a requisição.
+6. O veículo é armazenado no `db.json`.
+7. A aplicação atualiza a interface.
+8. O proprietário recebe o retorno da operação.
+
+### Exemplo: consulta de veículos
+
+1. O proprietário acessa a área de Veículos.
+2. O JavaScript realiza uma requisição `GET /veiculos`.
+3. O JSON Server retorna os veículos cadastrados.
+4. O JavaScript processa a resposta.
+5. A aplicação apresenta os veículos na interface.
+
+### Exemplo: detalhes de um veículo
+
+1. O proprietário seleciona um veículo.
+2. A aplicação identifica o `id` do veículo.
+3. O sistema consulta o veículo através da API.
+4. A interface apresenta os dados do veículo.
+5. As informações de manutenção relacionadas ao veículo são apresentadas na interface.
+6. A próxima revisão é apresentada quando houver informação cadastrada.
+
+## 9. Validação de Dados
+
+Os dados dos veículos devem ser validados antes de serem enviados para a API.
+
+### Veículo
+
+Devem ser verificadas informações como:
+
+- Campos obrigatórios preenchidos.
+- Marca preenchida.
+- Modelo preenchido.
+- Ano válido.
+- Placa em formato válido.
+- Quilometragem numérica.
+- Quilometragem maior ou igual a zero.
+- Combustível informado.
+
+### Próxima revisão
+
+Quando informada, deve possuir:
+
+- Data válida, quando preenchida.
+- Quilometragem válida, quando preenchida.
+- Valor de quilometragem maior ou igual a zero.
+
+A validação deve ocorrer no front-end antes da realização da requisição.
+
+## 10. Tratamento de Erros
+
+As requisições realizadas pelo front-end devem possuir tratamento de erros.
+
+Exemplos de situações que podem ocorrer:
+
+- API indisponível.
+- Erro durante uma requisição.
+- Falha no cadastro do veículo.
+- Falha na atualização.
+- Falha na exclusão.
+- Dados inválidos.
+- Veículo não encontrado.
+
+Quando ocorrer um erro, a interface deve apresentar uma mensagem clara ao proprietário.
+
+Exemplo:
+
+```text
+Não foi possível carregar os veículos.
+Tente novamente.
+```
+
+Outro exemplo:
+
+```text
+Não foi possível cadastrar o veículo.
+Verifique os dados e tente novamente.
+```
+
+## 11. Tecnologias e Bibliotecas
+
+### Front-end
+
+- HTML5
+- CSS3
+- JavaScript
+
+### Interface
+
+- Materialize CSS 1.0.0
+- Material Icons
+- Google Fonts - Inter
+
+### API e persistência
+
+- Node.js
+- NPM
+- JSON Server
+- `db.json`
+
+### Controle de versão
+
+- Git
+- GitHub
+
+## 12. Organização dos Arquivos
+
+A estrutura principal do projeto é organizada da seguinte forma:
+
+```text
+Manuten-de-veiculos/
+│
+├── .gitignore
+├── README.md
+├── package.json
+├── package-lock.json
+├── index.html
+├── db.json
+│
+├── css/
+│   └── styles.css
+│
+├── js/
+│   └── script.js
+│
+└── docs/
+    ├── architecture.md
+    ├── design-system.md
+    └── prd.md
+```
+
+### Responsabilidade dos arquivos
+
+#### `index.html`
+
+Contém a estrutura principal da aplicação e os elementos da interface.
+
+#### `css/styles.css`
+
+Contém os estilos personalizados da aplicação.
+
+#### `js/script.js`
+
+Contém a lógica de interação da aplicação, navegação entre as telas e comunicação com a API.
+
+#### `db.json`
+
+Contém os veículos utilizados pelo JSON Server.
+
+#### `docs/prd.md`
+
+Contém os requisitos do produto e as histórias de usuário.
+
+#### `docs/design-system.md`
+
+Contém as regras visuais da aplicação.
+
+#### `docs/architecture.md`
+
+Contém a especificação técnica, arquitetura, modelo de dados, rotas da API e estrutura do armazenamento.
+
+## 13. Considerações Técnicas
+
+O CarCare é um projeto didático desenvolvido para praticar conceitos de desenvolvimento web, organização de código, consumo de APIs e persistência de dados.
+
+O JSON Server é utilizado como uma API simulada durante o desenvolvimento.
+
+A API é utilizada principalmente para o cadastro, consulta, atualização e exclusão dos veículos.
+
+A aplicação não possui:
+
+- Cadastro de usuários.
+- Login.
+- Autenticação.
+- Gerenciamento de contas.
+- Sistema de permissões.
+
+O proprietário é considerado o responsável pelo cadastro e gerenciamento dos veículos.
+
+As informações de manutenção são utilizadas para o acompanhamento dos veículos na interface, mas não possuem uma API independente.
+
+A próxima revisão é tratada como uma informação relacionada ao veículo.
+
+O sistema não precisa realizar cálculos complexos para determinar automaticamente a próxima revisão.
+
+## 14. Resumo da Arquitetura
+
+```text
+CarCare
+│
+├── Interface
+│   ├── Dashboard
+│   ├── Veículos
+│   ├── Cadastro de Veículo
+│   ├── Detalhes do Veículo
+│   └── Manutenções
+│
+├── Front-end
+│   ├── HTML5
+│   ├── CSS3
+│   └── JavaScript
+│
+├── Interface Visual
+│   ├── Materialize CSS
+│   ├── Material Icons
+│   └── Inter
+│
+├── API
+│   └── JSON Server
+│       └── /veiculos
+│
+├── Dados
+│   └── db.json
+│       └── veiculos
+│
+└── Documentação
+    ├── prd.md
+    ├── design-system.md
+    └── architecture.md
+```
+
+A arquitetura do CarCare mantém uma estrutura simples, permitindo que o projeto demonstre o uso de uma aplicação web, consumo de API, persistência de dados e organização de documentação sem adicionar complexidade desnecessária.

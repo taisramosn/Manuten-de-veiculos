@@ -1,161 +1,136 @@
-# 🎨 Design System - CarCare
+# 🎨 Sistema de Design - CarCare
 
-Neste projeto, utilizamos um framework CSS e aplicamos customizações para refletir a identidade visual do sistema de controle de manutenção de veículos.
+O **CarCare** utiliza um sistema visual baseado no framework **Materialize CSS**, com customizações próprias para manter uma identidade visual consistente, simples e adequada ao controle de veículos e suas manutenções.
 
-### 1. Framework Base
+O sistema de design define as cores, tipografia, componentes, espaçamentos, estados visuais, ícones e regras de responsividade utilizadas na aplicação.
 
-* **Framework escolhido:** Bootstrap
-* **Motivação:** O Bootstrap oferece componentes prontos e responsivos, permitindo desenvolver a aplicação de forma rápida e consistente, utilizando recursos como Grid, Cards, Buttons, Forms, Navbar, Modal e Alerts.
+---
 
-### 2. Paleta de Cores (Customização)
+## 1. Framework Base
 
-A identidade visual do CarCare utiliza cores associadas ao universo automotivo, transmitindo organização, confiança e facilidade de uso.
+### Framework escolhido
 
-* **Cor Primária:** `#1565C0` *(Blue darken-3)*
+- **Materialize CSS 1.0.0**
 
-  * *Uso:* Botões principais, links, elementos de destaque, navegação e ações relacionadas ao cadastro e gerenciamento de informações.
+O Materialize fornece componentes prontos para a construção da interface, além de recursos para responsividade, formulários, tabelas, botões, modais, navegação e outros elementos da aplicação.
 
-* **Cor Secundária:** `#263238` *(Blue Grey darken-4)*
+O CarCare utiliza o Materialize como base e aplica estilos personalizados para adequar os componentes à identidade visual do sistema.
 
-  * *Uso:* Navbar, títulos de destaque, ícones e elementos estruturais da interface.
+### Bibliotecas visuais utilizadas
 
-* **Cor de Fundo (Background):** `#F5F7FA`
+- **Materialize CSS 1.0.0**
+- **Material Icons**
+- **Google Fonts - Inter**
 
-  * *Uso:* Fundo principal das páginas para destacar cards, formulários e demais componentes.
+Além dos componentes do Materialize, o projeto possui classes CSS próprias para elementos específicos do CarCare, como:
 
-* **Cor de Superfície:** `#FFFFFF`
+- `.btn-carcare`
+- `.btn-outline-carcare`
+- `.car-card`
+- `.content-box`
+- `.car-status-tag`
+- `.filter-chip`
+- `.sidebar-nav-item`
 
-  * *Uso:* Cards, tabelas, formulários e áreas de conteúdo.
+---
 
-* **Cor de Sucesso:** `#2E7D32`
+## 2. Paleta de Cores
 
-  * *Uso:* Indicar manutenções realizadas com sucesso, operações concluídas e situações em dia.
+A identidade visual do CarCare utiliza principalmente tons de azul, branco e cinza, buscando transmitir organização, clareza e facilidade de uso.
 
-* **Cor de Atenção:** `#F9A825`
+### 2.1 Cores principais
 
-  * *Uso:* Indicar manutenções próximas, avisos e situações que exigem atenção.
+| Nome | Código | Uso |
+|---|---|---|
+| Primária | `#2563EB` | Botões principais, ações, destaques e elementos ativos |
+| Primária escura | `#1D4ED8` | Estado hover de elementos principais |
+| Primária clara | `#EFF6FF` | Áreas de destaque e fundos relacionados à cor primária |
+| Fundo principal | `#F8FAFC` | Fundo geral da aplicação |
+| Superfície | `#FFFFFF` | Cards, formulários, tabelas e áreas de conteúdo |
+| Texto principal | `#0F172A` | Títulos e textos de maior importância |
+| Texto secundário | `#64748B` | Informações auxiliares, descrições e textos menos importantes |
+| Borda | `#E2E8F0` | Bordas de cards, tabelas, campos e divisores |
 
-* **Cor de Erro:** `#C62828`
+### 2.2 Cores de estado
 
-  * *Uso:* Indicar manutenções atrasadas, erros de formulário e ações que precisam de atenção imediata.
+| Estado | Cor principal | Uso |
+|---|---|---|
+| Sucesso | `#10B981` | Manutenções concluídas e situações positivas |
+| Atenção | `#F59E0B` | Manutenções em andamento ou situações que exigem atenção |
+| Erro | `#EF4444` | Erros, situações críticas ou manutenções que precisam de atenção |
+| Verde claro | `#DCFCE7` | Fundo de status positivo |
+| Vermelho claro | `#FEE2E2` | Fundo de status negativo |
+| Amarelo claro | `#FEF3C7` | Fundo de status de atenção |
+| Azul claro | `#DBEAFE` | Fundo de informações e estados relacionados à cor primária |
 
-### 3. Tipografia
+### 2.3 Sidebar
 
-A aplicação utilizará uma tipografia simples e moderna, priorizando legibilidade em dispositivos móveis e desktop.
+A navegação lateral utiliza uma paleta própria:
 
-* **Títulos (H1 a H6):** `Poppins, sans-serif` (Peso: 600 ou 700).
-* **Textos corridos, formulários e tabelas:** `Inter, sans-serif` (Peso: 400).
-* **Destaques numéricos:** `Poppins, sans-serif` (Peso: 600 ou 700).
+- **Fundo da sidebar:** `#0F172A`
+- **Hover da navegação:** `#1E293B`
+- **Item ativo:** `#2563EB`
+- **Texto claro:** `#E2E8F0`
+- **Texto branco:** `#FFFFFF`
 
-As fontes serão importadas utilizando Google Fonts.
+---
 
-### 4. Diretrizes de Uso de Componentes
+## 3. Tipografia
 
-As regras abaixo definem como os componentes do Bootstrap serão utilizados dentro da interface do CarCare.
+A tipografia principal utilizada no CarCare é a **Inter**, escolhida por sua boa legibilidade e aparência adequada para interfaces web.
 
-* **Botões (`.btn`):**
+### 3.1 Fonte principal
 
-  * Ações principais, como cadastrar veículo e registrar manutenção, devem utilizar `btn-primary`.
-  * Ações secundárias devem utilizar `btn-secondary` ou `btn-outline-primary`.
-  * Ações de exclusão devem utilizar `btn-danger`.
-  * Os botões devem possuir tamanho adequado para interação em dispositivos móveis.
+- **Inter**
+- Pesos utilizados: `300`, `400`, `500`, `600`, `700` e `800`
 
-* **Cards (`.card`):**
+A fonte é utilizada em títulos, textos, formulários, tabelas, botões e demais elementos da interface.
 
-  * Utilizados no Dashboard para apresentar informações como quilometragem, total gasto e quantidade de manutenções.
-  * Também podem ser utilizados para apresentar veículos e próximas manutenções.
-  * Os cards devem possuir espaçamento interno adequado e aparência limpa.
+### 3.2 Hierarquia tipográfica
 
-* **Formulários (`.form-control` e `.form-select`):**
+A interface utiliza diferentes pesos e tamanhos para estabelecer uma hierarquia visual.
 
-  * Os campos devem possuir `label` identificando claramente cada informação.
-  * Campos obrigatórios devem ser identificados.
-  * Mensagens de validação devem aparecer próximas aos campos correspondentes.
-  * Os campos devem ocupar a largura disponível em dispositivos menores.
+- **Títulos de página:** maior tamanho e maior peso.
+- **Títulos de cards:** peso intermediário ou alto.
+- **Textos:** peso regular.
+- **Informações auxiliares:** tamanho menor e cor secundária.
+- **Indicadores numéricos:** tamanho maior e maior peso.
+- **Cabeçalhos de tabelas:** tamanho reduzido, peso alto e letras em maiúsculas.
 
-* **Badges (`.badge`):**
+### 3.3 Tabelas
 
-  * Utilizados para indicar o status das manutenções.
-  * `badge bg-success` → Manutenção em dia.
-  * `badge bg-warning` → Manutenção próxima.
-  * `badge bg-danger` → Manutenção atrasada.
+Os cabeçalhos das tabelas utilizam:
 
-* **Alertas (`.alert`):**
+- Fonte em tamanho reduzido.
+- Peso `700`.
+- Letras maiúsculas.
+- Espaçamento entre letras.
+- Cor secundária `#64748B`.
 
-  * Utilizados para informar o usuário sobre operações realizadas, erros e avisos importantes.
-  * `alert-success` → Operação concluída.
-  * `alert-warning` → Manutenção próxima.
-  * `alert-danger` → Manutenção atrasada ou erro.
+---
 
-* **Navbar (`.navbar`):**
+## 4. Diretrizes de Uso de Componentes
 
-  * Utilizada como principal elemento de navegação.
-  * Deve permitir acesso às áreas de Dashboard, Veículos, Manutenções, Próximas Manutenções e Gastos.
-  * Em dispositivos menores deverá utilizar o menu responsivo do Bootstrap.
+Os componentes da interface utilizam os recursos do Materialize CSS combinados com classes personalizadas do CarCare.
 
-* **Tabelas (`.table`):**
+### 4.1 Botões
 
-  * Utilizadas para apresentar o histórico de manutenções e gastos.
-  * Em dispositivos móveis deverão ser adaptadas utilizando recursos de responsividade do Bootstrap.
+Os botões principais utilizam a classe personalizada `.btn-carcare`.
 
-* **Modal (`.modal`):**
+Características:
 
-  * Utilizado para confirmações de ações importantes, como exclusão de veículos e manutenções.
+- Cor de fundo: `#2563EB`.
+- Texto branco.
+- Bordas arredondadas.
+- Peso da fonte `600`.
+- Ícone opcional.
+- Altura aproximada de `38px`.
+- Espaçamento interno adequado.
 
-### 5. Espaçamento e Layout
+Exemplo de uso:
 
-O sistema utilizará o sistema de espaçamento fornecido pelo Bootstrap, priorizando unidades relativas e componentes responsivos.
-
-* Margens e espaçamentos deverão utilizar classes do Bootstrap como `m-*`, `p-*`, `gap-*` e `g-*`.
-* O layout deverá utilizar o sistema de Grid do Bootstrap.
-* O conteúdo deverá ser organizado em containers responsivos.
-* Elementos deverão se adaptar ao tamanho disponível da tela.
-
-### 6. Responsividade
-
-A aplicação seguirá o conceito **Mobile First**, utilizando o sistema de Grid e os breakpoints do Bootstrap.
-
-* **Mobile:** interface simplificada e organizada em uma coluna.
-* **Tablet:** utilização de duas ou mais colunas quando houver espaço suficiente.
-* **Desktop:** utilização de múltiplas colunas para aproveitar melhor a área disponível.
-
-A navegação deverá utilizar o comportamento responsivo da Navbar do Bootstrap.
-
-### 7. Estados dos Componentes
-
-Os componentes deverão possuir estados visuais claros:
-
-* **Normal:** componente disponível para interação.
-* **Hover:** indicação visual ao passar o mouse.
-* **Focus:** indicação de elemento selecionado.
-* **Disabled:** componente temporariamente indisponível.
-* **Loading:** indicação de carregamento durante requisições.
-* **Success:** operação realizada corretamente.
-* **Error:** operação não realizada ou dados inválidos.
-
-### 8. Ícones
-
-Serão utilizados ícones para facilitar a identificação visual das funcionalidades.
-
-Os ícones poderão representar:
-
-* 🚗 Veículos.
-* 🔧 Manutenções.
-* 🛞 Pneus.
-* 🛢️ Óleo.
-* 💰 Gastos.
-* 📅 Próximas manutenções.
-* ⚠️ Alertas.
-
-Os ícones deverão ser utilizados como complemento das informações textuais, evitando depender exclusivamente deles para transmitir significado.
-
-### 9. Princípios Visuais
-
-O CarCare deverá seguir os seguintes princípios:
-
-* **Clareza:** as informações importantes devem ser facilmente identificadas.
-* **Consistência:** componentes semelhantes devem possuir aparência e comportamento semelhantes.
-* **Simplicidade:** evitar excesso de elementos visuais.
-* **Responsividade:** a interface deverá funcionar em diferentes tamanhos de tela.
-* **Hierarquia:** informações mais importantes devem receber maior destaque.
-* **Usabilidade:** ações comuns devem ser fáceis de encontrar e executar.
+```html
+<a class="btn btn-carcare">
+    <i class="material-icons">add</i>
+    Nova Manutenção
+</a>
