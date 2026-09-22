@@ -36,6 +36,7 @@ Abaixo estão as funcionalidades principais do MVP (Produto Mínimo Viável), es
 - O ano deve ser válido.
 - A quilometragem deve ser um valor numérico maior ou igual a zero.
 - Os dados devem ser armazenados após o cadastro.
+- O armazenamento do veículo deverá ser realizado através do JSON Server.
 
 #### US02 - Visualização dos Veículos
 
@@ -45,6 +46,7 @@ Abaixo estão as funcionalidades principais do MVP (Produto Mínimo Viável), es
 - O sistema deverá apresentar os veículos cadastrados.
 - Cada veículo deverá apresentar suas principais informações, como marca, modelo, ano, placa, quilometragem e combustível.
 - O proprietário deverá poder acessar os detalhes de um veículo.
+- Os veículos cadastrados deverão ser consultados através da API.
 
 #### US03 - Visualização dos Detalhes do Veículo
 
@@ -53,7 +55,7 @@ Abaixo estão as funcionalidades principais do MVP (Produto Mínimo Viável), es
 **Critérios de Aceitação:**
 - O sistema deverá apresentar a quilometragem atual do veículo.
 - O sistema deverá apresentar o combustível.
-- O sistema deverá apresentar o total investido em manutenções.
+- O sistema deverá apresentar o total investido em manutenções, quando houver informação disponível.
 - O sistema deverá apresentar a situação atual da manutenção, quando houver.
 - O sistema deverá apresentar a próxima revisão prevista, quando houver.
 - O sistema deverá apresentar o histórico de manutenções relacionadas ao veículo.
@@ -66,6 +68,7 @@ Abaixo estão as funcionalidades principais do MVP (Produto Mínimo Viável), es
 - O sistema deve permitir a alteração dos dados cadastrados.
 - Os dados devem ser validados antes de serem salvos.
 - As alterações devem ser armazenadas após a confirmação.
+- A atualização do veículo deverá ser realizada através da API.
 
 #### US05 - Exclusão do Veículo
 
@@ -74,6 +77,7 @@ Abaixo estão as funcionalidades principais do MVP (Produto Mínimo Viável), es
 **Critérios de Aceitação:**
 - O sistema deve solicitar confirmação antes da exclusão do veículo.
 - O veículo deve ser removido após a confirmação.
+- A exclusão do veículo deverá ser realizada através da API.
 
 #### US06 - Acompanhamento da Próxima Revisão
 
@@ -101,7 +105,9 @@ Abaixo estão as funcionalidades principais do MVP (Produto Mínimo Viável), es
 - Deve ser informado o serviço realizado.
 - Deve ser informado o valor da manutenção.
 - Os campos obrigatórios devem ser validados antes do cadastro.
-- Os dados devem ser armazenados após o cadastro.
+- As informações devem ser apresentadas no sistema após o registro.
+
+> **Observação:** nesta versão do projeto, as manutenções não possuem uma API própria no JSON Server.
 
 #### US08 - Visualizar Histórico de Manutenções
 
@@ -122,7 +128,7 @@ Abaixo estão as funcionalidades principais do MVP (Produto Mínimo Viável), es
 **Critérios de Aceitação:**
 - O sistema deve permitir a alteração dos dados da manutenção.
 - Os dados devem ser validados antes de serem salvos.
-- As alterações devem ser armazenadas após a confirmação.
+- As alterações devem ser apresentadas no sistema após a confirmação.
 
 #### US10 - Excluir Manutenção
 
@@ -160,23 +166,24 @@ Abaixo estão as funcionalidades principais do MVP (Produto Mínimo Viável), es
 
 ### 🌐 Épico 4: Integração e Persistência de Dados
 
-#### US13 - Persistência de Dados
+#### US13 - Persistência de Dados dos Veículos
 
-**Como um Proprietário**, quero que os dados cadastrados sejam armazenados para que eu possa consultá-los posteriormente.
+**Como um Proprietário**, quero que os dados dos meus veículos sejam armazenados para que eu possa consultá-los posteriormente.
 
 **Critérios de Aceitação:**
 - Os dados dos veículos deverão ser armazenados.
-- Os dados das manutenções deverão ser armazenados.
 - O armazenamento deverá ser realizado através de uma API falsa utilizando JSON Server.
+- O sistema deverá permitir cadastrar, consultar, atualizar e excluir veículos através da API.
+- Os dados deverão ser armazenados no arquivo `db.json`.
 
-#### US14 - Consulta de Dados
+#### US14 - Consulta de Dados dos Veículos
 
-**Como um Proprietário**, quero que os dados cadastrados sejam carregados automaticamente ao acessar as páginas do sistema.
+**Como um Proprietário**, quero que os dados dos veículos sejam carregados automaticamente ao acessar as páginas do sistema.
 
 **Critérios de Aceitação:**
 - O sistema deverá realizar requisições assíncronas à API.
 - Os dados dos veículos deverão ser consultados e exibidos.
-- Os dados das manutenções deverão ser consultados e exibidos.
+- O sistema deverá permitir consultar um veículo específico.
 - O sistema deverá tratar possíveis erros nas requisições.
 
 #### US15 - Consulta à API Pública
@@ -208,8 +215,8 @@ O MVP do CarCare contempla:
 - Acompanhamento da próxima revisão.
 - Visualização do Dashboard.
 - Visualização dos status das manutenções.
-- Persistência dos dados utilizando JSON Server.
-- Consulta dos dados através de requisições assíncronas.
+- Persistência dos dados dos veículos utilizando JSON Server.
+- Consulta dos veículos através de requisições assíncronas.
 - Integração com uma API pública.
 
 O sistema **não contempla**:
@@ -219,6 +226,8 @@ O sistema **não contempla**:
 - Gerenciamento de contas.
 - Uma aba exclusiva para gastos.
 - Uma aba exclusiva para próximas manutenções.
+- API independente para manutenções.
+- API independente para próximas manutenções.
 
 Os gastos são apresentados como informações relacionadas às manutenções e aos veículos, enquanto as próximas revisões são apresentadas no acompanhamento dos veículos.
 
@@ -248,7 +257,9 @@ Nos detalhes de cada veículo poderão ser apresentadas informações como:
 
 ### Manutenções
 
-Apresenta o histórico de manutenções cadastradas e permite consultar os serviços realizados, seus valores, quilometragens, status e demais informações relacionadas.
+Apresenta o histórico de manutenções e permite consultar os serviços realizados, seus valores, quilometragens, status e demais informações relacionadas.
+
+As informações de manutenção fazem parte da experiência da aplicação, mas não possuem uma API independente nesta versão do projeto.
 
 ---
 
@@ -261,5 +272,8 @@ Apresenta o histórico de manutenções cadastradas e permite consultar os servi
 - Os valores das manutenções podem ser utilizados para apresentar o total investido no veículo.
 - As informações de próxima revisão devem estar relacionadas ao veículo.
 - A próxima revisão não depende de cálculos complexos realizados pelo sistema.
-- Os dados devem ser persistidos utilizando JSON Server.
-- As informações apresentadas ao proprietário devem ser obtidas a partir dos dados armazenados.
+- Os dados dos veículos devem ser persistidos utilizando JSON Server.
+- O JSON Server disponibiliza a coleção `/veiculos`.
+- O sistema deverá utilizar requisições HTTP para consultar, cadastrar, atualizar e excluir veículos.
+- As informações de manutenção não possuem endpoints próprios nesta versão do projeto.
+- As informações apresentadas ao proprietário devem ser organizadas de acordo com as funcionalidades disponíveis na aplicação.
