@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CarCare - Novo Veículo</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="material-icons">directions_car</i>
+            </div>
+
+            <div>
+                <strong>CarCare</strong>
+                <small>GESTÃO DE FROTA</small>
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn blue-btn new-maintenance"
+            onclick="novaManutencao()"
+        >
+
+            <i class="material-icons left">add</i>
+
+            Nova Manutenção
+
+        </button>
+
+
+        <nav class="menu">
+
+            <a onclick="irPara('index.html')">
+
+                <i class="material-icons">dashboard</i>
+
+                Dashboard
+
+            </a>
+
+
+            <a class="active">
+
+                <i class="material-icons">directions_car</i>
+
+                Meus Veículos
+
+            </a>
+
+
+            <a onclick="irPara('manutencoes.html')">
+
+                <i class="material-icons">build</i>
+
+                Manutenções
+
+            </a>
+
+        </nav>
+
+
+        <div class="menu-bottom">
+
+            <a>
+
+                <i class="material-icons">settings</i>
+
+                Configurações
+
+            </a>
+
+
+            <a>
+
+                <i class="material-icons">help_outline</i>
+
+                Suporte
+
+            </a>
+
+
+            <a class="logout" onclick="sair()">
+
+                <i class="material-icons">logout</i>
+
+                Sair
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ÁREA PRINCIPAL -->
+    <main>
+
+
+        <!-- TOPO -->
+        <header class="topbar">
+
+            <div class="search">
+
+                <i class="material-icons">search</i>
+
+                <input
+                    type="text"
+                    placeholder="Buscar por placa, modelo ou OS..."
+                >
+
+            </div>
+
+
+            <div class="user">
+
+                <i class="material-icons notification">
+                    notifications_none
+                </i>
+
+                <span class="avatar">
+                    AD
+                </span>
+
+                <div>
+
+                    <strong>
+                        Administrador
+                    </strong>
+
+                    <small>
+                        Gestor de Frota
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+        <section class="content">
+
+
+            <button
+                class="back-button"
+                onclick="irPara('veiculos.html')"
+            >
+
+                <i class="material-icons">
+                    arrow_back
+                </i>
+
+                Voltar para meus veículos
+
+            </button>
+
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="subtitle">
+                        GESTÃO DA FROTA
+                    </span>
+
+                    <h1>
+                        Novo veículo
+                    </h1>
+
+                </div>
+
+            </div>
+
+
+            <!-- FORMULÁRIO -->
+            <div class="card maintenance-form">
+
+                <div class="card-content">
+
+                    <h2>
+                        Cadastro do veículo
+                    </h2>
+
+
+                    <form id="vehicleForm">
+
+
+                        <!-- DADOS DO VEÍCULO -->
+                        <div class="form-section">
+
+                            <h3>
+                                Dados do veículo
+                            </h3>
+
+
+                            <div class="row">
+
+
+                                <!-- MARCA -->
+                                <div class="input-field col s12 m4">
+
+                                    <select id="vehicleBrand" required>
+
+                                        <option value="" disabled selected>
+                                            Selecione a marca
+                                        </option>
+
+                                    </select>
+
+                                    <label for="vehicleBrand">
+                                        Marca
+                                    </label>
+
+                                </div>
+
+
+                                <!-- MODELO -->
+                                <div class="input-field col s12 m4">
+
+                                    <select id="vehicleModel" required>
+
+                                        <option value="" disabled selected>
+                                            Selecione o modelo
+                                        </option>
+
+                                    </select>
+
+                                    <label for="vehicleModel">
+                                        Modelo
+                                    </label>
+
+                                </div>
+
+
+                                <!-- ANO -->
+                                <div class="input-field col s12 m4">
+
+                                    <select id="vehicleYear" required>
+
+                                        <option value="" disabled selected>
+                                            Selecione o ano
+                                        </option>
+
+                                    </select>
+
+                                    <label for="vehicleYear">
+                                        Ano
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- IDENTIFICAÇÃO -->
+                        <div class="form-section">
+
+                            <h3>
+                                Identificação
+                            </h3>
+
+
+                            <div class="row">
+
+
+                                <!-- PLACA -->
+                                <div class="input-field col s12 m6">
+
+                                    <i class="material-icons prefix">
+                                        badge
+                                    </i>
+
+                                    <input
+                                        id="vehiclePlate"
+                                        type="text"
+                                        maxlength="7"
+                                        required
+                                    >
+
+                                    <label for="vehiclePlate">
+                                        Placa
+                                    </label>
+
+                                </div>
+
+
+                                <!-- QUILOMETRAGEM -->
+                                <div class="input-field col s12 m6">
+
+                                    <i class="material-icons prefix">
+                                        speed
+                                    </i>
+
+                                    <input
+                                        id="vehicleKm"
+                                        type="number"
+                                        min="0"
+                                        required
+                                    >
+
+                                    <label for="vehicleKm">
+                                        Quilometragem atual
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- COMBUSTÍVEL -->
+                        <div class="form-section">
+
+                            <h3>
+                                Informações adicionais
+                            </h3>
+
+
+                            <div class="row">
+
+
+                                <div class="input-field col s12 m6">
+
+                                    <select
+                                        id="vehicleFuel"
+                                        required
+                                    >
+
+                                        <option
+                                            value=""
+                                            disabled
+                                            selected
+                                        >
+                                            Selecione o combustível
+                                        </option>
+
+                                        <option value="Flex">
+                                            Flex
+                                        </option>
+
+                                        <option value="Gasolina">
+                                            Gasolina
+                                        </option>
+
+                                        <option value="Etanol">
+                                            Etanol
+                                        </option>
+
+                                        <option value="Diesel">
+                                            Diesel
+                                        </option>
+
+                                        <option value="Elétrico">
+                                            Elétrico
+                                        </option>
+
+                                        <option value="Híbrido">
+                                            Híbrido
+                                        </option>
+
+                                    </select>
+
+                                    <label for="vehicleFuel">
+                                        Combustível
+                                    </label>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- AÇÕES -->
+                        <div class="form-actions">
+
+                            <button
+                                type="button"
+                                class="btn cancel-btn"
+                                onclick="irPara('veiculos.html')"
+                            >
+
+                                Cancelar
+
+                            </button>
+
+
+                            <button
+                                type="submit"
+                                class="btn blue-btn"
+                            >
+
+                                <i class="material-icons left">
+                                    save
+                                </i>
+
+                                Salvar veículo
+
+                            </button>
+
+                        </div>
+
+
+                    </form>
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    </script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

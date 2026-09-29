@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CarCare - Manutenções</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <!-- MENU LATERAL -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="material-icons">directions_car</i>
+            </div>
+
+            <div>
+                <strong>CarCare</strong>
+                <small>GESTÃO DE FROTA</small>
+            </div>
+
+        </div>
+
+
+       <button
+    class="btn blue-btn new-maintenance"
+    onclick="irPara('nova-manutencao.html')"
+>
+
+            <i class="material-icons left">
+                add
+            </i>
+
+            Nova Manutenção
+
+        </button>
+
+
+        <nav class="menu">
+
+            <a onclick="irPara('index.html')">
+
+                <i class="material-icons">
+                    dashboard
+                </i>
+
+                Dashboard
+
+            </a>
+
+
+            <a onclick="irPara('veiculos.html')">
+
+                <i class="material-icons">
+                    directions_car
+                </i>
+
+                Meus Veículos
+
+            </a>
+
+
+            <a class="active">
+
+                <i class="material-icons">
+                    build
+                </i>
+
+                Manutenções
+
+            </a>
+
+        </nav>
+
+
+        <div class="menu-bottom">
+
+            <a>
+
+                <i class="material-icons">
+                    settings
+                </i>
+
+                Configurações
+
+            </a>
+
+
+            <a>
+
+                <i class="material-icons">
+                    help_outline
+                </i>
+
+                Suporte
+
+            </a>
+
+
+            <a class="logout">
+
+                <i class="material-icons">
+                    logout
+                </i>
+
+                Sair
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ÁREA PRINCIPAL -->
+
+    <main>
+
+
+        <!-- TOPO -->
+
+        <header class="topbar">
+
+            <div class="search">
+
+                <i class="material-icons">
+                    search
+                </i>
+
+                <input
+                    type="text"
+                    placeholder="Buscar por placa, modelo ou OS..."
+                >
+
+            </div>
+
+
+            <div class="user">
+
+                <i class="material-icons notification">
+                    notifications_none
+                </i>
+
+
+                <span class="avatar">
+                    AD
+                </span>
+
+
+                <div>
+
+                    <strong>
+                        Administrador
+                    </strong>
+
+                    <small>
+                        Gestor de Frota
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+
+        <section class="content">
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="subtitle">
+                        GESTÃO DE SERVIÇOS
+                    </span>
+
+                    <h1>
+                        Manutenções
+                    </h1>
+
+                </div>
+
+
+               <button
+    class="btn blue-btn"
+    onclick="irPara('nova-manutencao.html')"
+>
+
+                    <i class="material-icons left">
+                        add
+                    </i>
+
+                    Nova Manutenção
+
+                </button>
+
+            </div>
+
+
+            <!-- INDICADORES -->
+
+            <div class="row maintenance-stats">
+
+
+                <div class="col s12 m4">
+
+                    <div class="card maintenance-stat">
+
+                        <div class="card-content">
+
+                            <span>
+                                Em andamento
+                            </span>
+
+                            <strong id="maintenance-andamento-count">
+                                0
+                            </strong>
+
+                            <i class="material-icons">
+                                build
+                            </i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col s12 m4">
+
+                    <div class="card maintenance-stat">
+
+                        <div class="card-content">
+
+                            <span>
+                                Pronto
+                            </span>
+
+                            <strong id="maintenance-pronto-count">
+                                0
+                            </strong>
+
+                            <i class="material-icons">
+                                check_circle
+                            </i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col s12 m4">
+
+                    <div class="card maintenance-stat">
+
+                        <div class="card-content">
+
+                            <span>
+                                Total de manutenções
+                            </span>
+
+                            <strong id="maintenance-total-count">
+                                0
+                            </strong>
+
+                            <i class="material-icons">
+                                check_circle
+                            </i>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- FILTROS -->
+
+            <div class="maintenance-filters">
+
+                <button class="filter active">
+                    Todas
+                </button>
+
+                <button class="filter">
+                    Em andamento
+                </button>
+
+                <button class="filter">
+                    Pronto
+                </button>
+
+            </div>
+
+
+            <!-- LISTA DE MANUTENÇÕES -->
+
+            <section class="maintenance-list">
+
+
+                <!-- OS HILUX -->
+
+                <article class="maintenance-card">
+
+                    <div class="maintenance-card-header">
+
+                        <div>
+
+                            <span class="os-number">
+                                OS #2024-089
+                            </span>
+
+                            <h2>
+                                Toyota Hilux SRX
+                            </h2>
+
+                            <span class="maintenance-plate">
+                                HIL9A44 • 2021 • 82.100 km
+                            </span>
+
+                        </div>
+
+
+                        <span class="maintenance-status progress">
+                            Em andamento
+                        </span>
+
+                    </div>
+
+
+                    <div class="maintenance-card-body">
+
+                        <div class="maintenance-info">
+
+                            <span>
+                                Serviço
+                            </span>
+
+                            <strong>
+                                Sistema de freios
+                            </strong>
+
+                        </div>
+
+
+                        <div class="maintenance-info">
+
+                            <span>
+                                Responsável
+                            </span>
+
+                            <strong>
+                                Oficina Central
+                            </strong>
+
+                        </div>
+
+
+                        <div class="maintenance-info">
+
+                            <span>
+                                Previsão
+                            </span>
+
+                            <strong>
+                                R$ 1.450,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="maintenance-info">
+
+                            <span>
+                                Data
+                            </span>
+
+                            <strong>
+                                24/09/2026
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="maintenance-card-footer">
+
+                        <span class="red-text">
+                            Retífica de discos e troca de pastilhas
+                        </span>
+
+
+                        <button
+                            class="btn blue-btn details"
+                            onclick="verDetalhes('hilux')"
+                        >
+
+                            Ver veículo
+
+                            <i class="material-icons right">
+                                chevron_right
+                            </i>
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+                <!-- OS COROLLA -->
+
+                <article class="maintenance-card">
+
+                    <div class="maintenance-card-header">
+
+                        <div>
+
+                            <span class="os-number">
+                                OS #2024-087
+                            </span>
+
+                            <h2>
+                                Toyota Corolla Altis
+                            </h2>
+
+                            <span class="maintenance-plate">
+                                BRA2E19 • 2022 • 48.500 km
+                            </span>
+
+                        </div>
+
+
+                        <span class="maintenance-status completed">
+                            Concluída
+                        </span>
+
+                    </div>
+
+
+                    <div class="maintenance-card-body">
+
+                        <div class="maintenance-info">
+
+                            <span>
+                                Serviço
+                            </span>
+
+                            <strong>
+                                Revisão preventiva
+                            </strong>
+
+                        </div>
+
+
+                        <div class="maintenance-info">
+
+                            <span>
+                                Responsável
+                            </span>
+
+                            <strong>
+                                Oficina Central
+                            </strong>
+
+                        </div>
+
+
+                        <div class="maintenance-info">
+
+                            <span>
+                                Valor
+                            </span>
+
+                            <strong>
+                                R$ 850,00
+                            </strong>
+
+                        </div>
+
+
+                        <div class="maintenance-info">
+
+                            <span>
+                                Data
+                            </span>
+
+                            <strong>
+                                20/09/2026
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="maintenance-card-footer">
+
+                        <span class="green-text">
+                            Serviço concluído
+                        </span>
+
+
+                        <button
+                            class="btn blue-btn details"
+                            onclick="verDetalhes('corolla')"
+                        >
+
+                            Ver veículo
+
+                            <i class="material-icons right">
+                                chevron_right
+                            </i>
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

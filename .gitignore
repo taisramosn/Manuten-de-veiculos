@@ -1,4 +1,4 @@
 node_modules/
 .env
 .vscode/
-script.js
+config.local.js

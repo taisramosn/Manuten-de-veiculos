@@ -1,33 +1,435 @@
-<div class="row">
+<!DOCTYPE html>
+<html lang="pt-BR">
 
-    <!-- Marca -->
-    <div class="input-field col s12 m4">
-        <select id="marca">
-            <option value="" disabled selected>
-                Selecione a marca
-            </option>
-        </select>
-        <label>Marca</label>
-    </div>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Modelo -->
-    <div class="input-field col s12 m4">
-        <select id="modelo" disabled>
-            <option value="" disabled selected>
-                Selecione o modelo
-            </option>
-        </select>
-        <label>Modelo</label>
-    </div>
+    <title>CarCare - Dashboard</title>
 
-    <!-- Ano -->
-    <div class="input-field col s12 m4">
-        <select id="ano" disabled>
-            <option value="" disabled selected>
-                Selecione o ano
-            </option>
-        </select>
-        <label>Ano</label>
-    </div>
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    >
 
-</div>
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- MENU LATERAL -->
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="material-icons">directions_car</i>
+            </div>
+
+            <div>
+                <strong>CarCare</strong>
+                <small>GESTÃO DE FROTA</small>
+            </div>
+
+        </div>
+
+
+       <button
+    class="btn blue-btn new-maintenance"
+    onclick="irPara('nova-manutencao.html')"
+>
+            <i class="material-icons left">add</i>
+            Nova Manutenção
+        </button>
+
+
+        <nav class="menu">
+
+            <a class="active">
+                <i class="material-icons">dashboard</i>
+                Dashboard
+            </a>
+
+            <a onclick="irPara('veiculos.html')">
+                <i class="material-icons">directions_car</i>
+                Meus Veículos
+            </a>
+
+            <a onclick="irPara('manutencoes.html')">
+                <i class="material-icons">build</i>
+                Manutenções
+            </a>
+
+        </nav>
+
+
+        <div class="menu-bottom">
+
+            <a>
+                <i class="material-icons">settings</i>
+                Configurações
+            </a>
+
+            <a>
+                <i class="material-icons">help_outline</i>
+                Suporte
+            </a>
+
+            <a class="logout" onclick="sair()">
+    <i class="material-icons">logout</i>
+    Sair
+</a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ÁREA PRINCIPAL -->
+    <main>
+
+        <!-- TOPO -->
+        <header class="topbar">
+
+            <div class="search">
+
+                <i class="material-icons">search</i>
+
+                <input
+                    type="text"
+                    placeholder="Buscar por placa, modelo ou OS..."
+                >
+
+            </div>
+
+
+            <div class="user">
+
+                <i class="material-icons notification">
+                    notifications_none
+                </i>
+
+                <span class="avatar">AD</span>
+
+                <div>
+                    <strong>Administrador</strong>
+                    <small>Gestor de Frota</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+        <section class="content">
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="subtitle">
+                        PAINEL GERAL • ATUALIZADO EM TEMPO REAL
+                    </span>
+
+                    <h1>Visão Geral da Frota</h1>
+
+                </div>
+
+            </div>
+
+
+            <!-- INDICADORES -->
+            <div class="row stats">
+
+                <div class="col s12 m6">
+
+                    <div class="card stat-card">
+
+                        <div class="card-content">
+
+                            <span class="stat-title">
+                                Total de Veículos
+                            </span>
+
+                            <strong class="stat-number">
+                                24
+                            </strong>
+
+                            <span class="stat-icon">
+                                <i class="material-icons">
+                                    directions_car
+                                </i>
+                            </span>
+
+                            <div class="stat-footer">
+                                <b>+2 no mês</b>
+                                • 21 Operacionais
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="col s12 m6">
+
+                    <div class="card stat-card">
+
+                        <div class="card-content">
+
+                            <span class="stat-title">
+                                Manutenções Ativas
+                            </span>
+
+                            <strong class="stat-number">
+                                5
+                            </strong>
+
+                            <span class="stat-icon maintenance-icon">
+                                <i class="material-icons">
+                                    build
+                                </i>
+                            </span>
+
+                            <div class="stat-footer warning">
+                                2 corretivas urgentes
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- VEÍCULOS -->
+            <section class="fleet card">
+
+                <div class="fleet-header">
+
+                    <div>
+
+                        <span class="subtitle">
+                            DESTAQUES DA FROTA
+                        </span>
+
+                        <h2>Veículos Monitorados</h2>
+
+                    </div>
+
+
+                    <div class="filters">
+
+                        <button class="filter active">
+                            Todos (2)
+                        </button>
+
+                        <button class="filter">
+                            Em Andamento (1)
+                        </button>
+
+                        <button class="filter">
+                            Prontos (1)
+                        </button>
+
+                        <a onclick="irPara('veiculos.html')">
+                            Ver todos (24) →
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <div class="vehicles">
+
+                    <!-- COROLLA -->
+                    <article class="vehicle-card">
+
+                        <div class="vehicle-image corolla">
+
+                            <span class="status ready">
+                                Pronto
+                            </span>
+
+                            <span class="plate">
+                                BRA2E19
+                            </span>
+
+                        </div>
+
+
+                        <div class="vehicle-content">
+
+                            <div class="vehicle-name">
+
+                                <strong>
+                                    Toyota Corolla Altis
+                                </strong>
+
+                                <span>2022</span>
+
+                            </div>
+
+                            <p class="vehicle-info">
+                                48.500 km • Flex
+                            </p>
+
+
+                            <div class="service success">
+
+                                <strong>
+                                    <i class="material-icons">
+                                        check_circle
+                                    </i>
+
+                                    SERVIÇO CONCLUÍDO
+                                </strong>
+
+                                <p>
+                                    O que foi feito: Troca de óleo 5W30,
+                                    filtros (ar, óleo e cabine) e pastilhas
+                                    de freio dianteiras.
+                                </p>
+
+                                <span class="price">
+                                    R$ 850,00
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vehicle-footer">
+
+                            <span class="green-text">
+                                Liberado para rodagem
+                            </span>
+
+                            <button
+                                class="btn blue-btn details"
+                                onclick="verDetalhes('corolla')"
+                            >
+                                Detalhes
+
+                                <i class="material-icons right">
+                                    chevron_right
+                                </i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+
+                    <!-- HILUX -->
+                    <article class="vehicle-card">
+
+                        <div class="vehicle-image hilux">
+
+                            <span class="status in-maintenance">
+                                Em Manutenção
+                            </span>
+
+                            <span class="plate">
+                                HIL9A44
+                            </span>
+
+                        </div>
+
+
+                        <div class="vehicle-content">
+
+                            <div class="vehicle-name">
+
+                                <strong>
+                                    Toyota Hilux SRX
+                                </strong>
+
+                                <span>2021</span>
+
+                            </div>
+
+                            <p class="vehicle-info">
+                                82.100 km • Diesel
+                            </p>
+
+
+                            <div class="service danger">
+
+                                <strong>
+                                    <i class="material-icons">
+                                        error
+                                    </i>
+
+                                    MANUTENÇÃO EM ANDAMENTO
+                                </strong>
+
+                                <p>
+                                    O que está sendo feito: Retífica de
+                                    discos de freio, substituição do jogo
+                                    de pastilhas dianteiras e sangria do
+                                    sistema hidráulico.
+                                </p>
+
+                                <span class="price">
+                                    Previsão: R$ 1.450,00
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="vehicle-footer">
+
+                            <span class="red-text">
+                                OS #2024-089 Em Execução
+                            </span>
+
+                            <button
+                                class="btn blue-btn details"
+                                onclick="verDetalhes('hilux')"
+                            >
+                                Detalhes
+
+                                <i class="material-icons right">
+                                    chevron_right
+                                </i>
+
+                            </button>
+
+                        </div>
+
+                    </article>
+
+                </div>
+
+            </section>
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

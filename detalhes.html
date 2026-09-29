@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CarCare - Detalhes do Veículo</title>
+
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    >
+
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body>
+
+
+    <!-- MENU LATERAL -->
+
+    <aside class="sidebar">
+
+        <div class="logo">
+
+            <div class="logo-icon">
+                <i class="material-icons">directions_car</i>
+            </div>
+
+            <div>
+                <strong>CarCare</strong>
+                <small>GESTÃO DE FROTA</small>
+            </div>
+
+        </div>
+
+
+        <button
+            class="btn blue-btn new-maintenance"
+            onclick="novaManutencao()"
+        >
+            <i class="material-icons left">add</i>
+            Nova Manutenção
+        </button>
+
+
+        <nav class="menu">
+
+            <a onclick="irPara('index.html')">
+                <i class="material-icons">dashboard</i>
+                Dashboard
+            </a>
+
+
+            <a class="active">
+                <i class="material-icons">directions_car</i>
+                Meus Veículos
+            </a>
+
+
+            <a onclick="irPara('manutencoes.html')">
+                <i class="material-icons">build</i>
+                Manutenções
+            </a>
+
+        </nav>
+
+
+        <div class="menu-bottom">
+
+            <a>
+                <i class="material-icons">settings</i>
+                Configurações
+            </a>
+
+            <a>
+                <i class="material-icons">help_outline</i>
+                Suporte
+            </a>
+
+            <a class="logout">
+                <i class="material-icons">logout</i>
+                Sair
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- ÁREA PRINCIPAL -->
+
+    <main>
+
+
+        <!-- TOPO -->
+
+        <header class="topbar">
+
+            <div class="search">
+
+                <i class="material-icons">
+                    search
+                </i>
+
+                <input
+                    type="text"
+                    placeholder="Buscar por placa, modelo ou OS..."
+                >
+
+            </div>
+
+
+            <div class="user">
+
+                <i class="material-icons notification">
+                    notifications_none
+                </i>
+
+                <span class="avatar">
+                    AD
+                </span>
+
+                <div>
+
+                    <strong>
+                        Administrador
+                    </strong>
+
+                    <small>
+                        Gestor de Frota
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- CONTEÚDO -->
+
+        <section class="content">
+
+
+            <!-- VOLTAR -->
+
+            <button
+                class="back-button"
+                onclick="irPara('veiculos.html')"
+            >
+
+                <i class="material-icons">
+                    arrow_back
+                </i>
+
+                Voltar para Meus Veículos
+
+            </button>
+
+
+            <!-- CABEÇALHO DO VEÍCULO -->
+
+            <div class="vehicle-detail-header">
+
+                <div>
+
+                    <span class="subtitle">
+                        DETALHES DO VEÍCULO
+                    </span>
+
+                    <h1 id="vehicleName">
+                        Veículo
+                    </h1>
+
+                    <p id="vehicleInfo">
+                        Informações do veículo
+                    </p>
+
+                </div>
+
+
+                <span
+                    id="vehicleStatus"
+                    class="status ready detail-status"
+                >
+                    Pronto
+                </span>
+
+            </div>
+
+
+            <!-- INFORMAÇÕES -->
+
+            <div class="detail-grid">
+
+
+                <!-- FOTO -->
+
+                <div class="card detail-image-card">
+
+                    <div
+                        id="vehicleImage"
+                        class="vehicle-detail-image"
+                    >
+                    </div>
+
+                </div>
+
+
+                <!-- DADOS -->
+
+                <div class="card detail-card">
+
+                    <div class="card-content">
+
+                        <span class="subtitle">
+                            INFORMAÇÕES
+                        </span>
+
+                        <h2>
+                            Dados do veículo
+                        </h2>
+
+
+                        <div class="info-grid">
+
+
+                            <div>
+
+                                <small>
+                                    Modelo
+                                </small>
+
+                                <strong id="vehicleModel">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    Ano
+                                </small>
+
+                                <strong id="vehicleYear">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    Placa
+                                </small>
+
+                                <strong id="vehiclePlate">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    Quilometragem
+                                </small>
+
+                                <strong id="vehicleKm">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    Combustível
+                                </small>
+
+                                <strong id="vehicleFuel">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                            <div>
+
+                                <small>
+                                    Status
+                                </small>
+
+                                <strong id="vehicleStatusText">
+                                    -
+                                </strong>
+
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+
+            <!-- MANUTENÇÃO -->
+
+            <div class="card detail-card maintenance-detail">
+
+                <div class="card-content">
+
+                    <span class="subtitle">
+                        MANUTENÇÃO
+                    </span>
+
+                    <h2>
+                        Última manutenção
+                    </h2>
+
+
+                    <div class="maintenance-box">
+
+                        <div>
+
+                            <strong id="maintenanceTitle">
+                                -
+                            </strong>
+
+                            <p id="maintenanceDescription">
+                                -
+                            </p>
+
+                        </div>
+
+
+                        <strong
+                            id="maintenancePrice"
+                            class="maintenance-price"
+                        >
+                            -
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <script src="js/app.js"></script>
+
+</body>
+
+</html>

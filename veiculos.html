@@ -1,0 +1,377 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CarCare - Meus Veículos</title>
+
+    <!-- Materialize -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    >
+
+    <!-- Material Icons -->
+    <link
+        href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        rel="stylesheet"
+    >
+
+    <!-- CSS do projeto -->
+    <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         MENU LATERAL
+    ====================================================== -->
+
+    <aside class="sidebar">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            <div class="logo-icon">
+
+                <i class="material-icons">
+                    directions_car
+                </i>
+
+            </div>
+
+
+            <div>
+
+                <strong>
+                    CarCare
+                </strong>
+
+                <small>
+                    GESTÃO DE FROTA
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <!-- NOVA MANUTENÇÃO -->
+
+        <button
+            class="btn blue-btn new-maintenance"
+            onclick="novaManutencao()"
+        >
+
+            <i class="material-icons left">
+                add
+            </i>
+
+            Nova Manutenção
+
+        </button>
+
+
+        <!-- MENU -->
+
+        <nav class="menu">
+
+            <!-- DASHBOARD -->
+
+            <a onclick="irPara('index.html')">
+
+                <i class="material-icons">
+                    dashboard
+                </i>
+
+                Dashboard
+
+            </a>
+
+
+            <!-- MEUS VEÍCULOS -->
+
+            <a
+                class="active"
+                onclick="irPara('veiculos.html')"
+            >
+
+                <i class="material-icons">
+                    directions_car
+                </i>
+
+                Meus Veículos
+
+            </a>
+
+
+            <!-- MANUTENÇÕES -->
+
+            <a onclick="irPara('manutencoes.html')">
+
+                <i class="material-icons">
+                    build
+                </i>
+
+                Manutenções
+
+            </a>
+
+        </nav>
+
+
+        <!-- MENU INFERIOR -->
+
+        <div class="menu-bottom">
+
+            <!-- SAIR -->
+
+            <a
+                class="logout"
+                onclick="sair()"
+            >
+
+                <i class="material-icons">
+                    logout
+                </i>
+
+                Sair
+
+            </a>
+
+        </div>
+
+    </aside>
+
+
+
+    <!-- =====================================================
+         ÁREA PRINCIPAL
+    ====================================================== -->
+
+    <main>
+
+
+        <!-- =================================================
+             TOPO
+        ================================================== -->
+
+        <header class="topbar">
+
+
+            <!-- BUSCA -->
+
+            <div class="search">
+
+                <i class="material-icons">
+                    search
+                </i>
+
+
+                <input
+                    type="text"
+                    id="vehicle-filter-input"
+                    placeholder="Buscar por placa, modelo ou OS..."
+                    oninput="filterVehiclesList()"
+                >
+
+            </div>
+
+
+            <!-- USUÁRIO -->
+
+            <div class="user">
+
+                <i class="material-icons notification">
+                    notifications_none
+                </i>
+
+
+                <span class="avatar">
+                    AD
+                </span>
+
+
+                <div>
+
+                    <strong>
+                        Administrador
+                    </strong>
+
+                    <small>
+                        Gestor de Frota
+                    </small>
+
+                </div>
+
+            </div>
+
+        </header>
+
+
+
+        <!-- =================================================
+             CONTEÚDO
+        ================================================== -->
+
+        <section class="content">
+
+
+            <!-- CABEÇALHO -->
+
+            <div class="page-header">
+
+                <div>
+
+                    <span class="subtitle">
+                        GESTÃO DA FROTA
+                    </span>
+
+
+                    <h1>
+                        Meus Veículos
+                    </h1>
+
+                </div>
+
+
+                <!-- NOVO VEÍCULO -->
+
+                <button
+                    class="btn blue-btn"
+                    onclick="irPara('novo-veiculo.html')"
+                >
+
+                    <i class="material-icons left">
+                        add
+                    </i>
+
+                    Novo veículo
+
+                </button>
+
+            </div>
+
+
+
+            <!-- =================================================
+                 FILTROS
+            ================================================== -->
+
+            <div class="vehicle-filters">
+
+
+                <!-- TODOS -->
+
+                <button
+                    class="filter active"
+                    onclick="filterVehiclesByStatus('todos', this)"
+                >
+
+                    Todos
+
+                </button>
+
+
+                <!-- OPERACIONAIS -->
+
+                <button
+                    class="filter"
+                    onclick="filterVehiclesByStatus('operacional', this)"
+                >
+
+                    Operacionais
+
+                </button>
+
+
+                <!-- EM MANUTENÇÃO -->
+
+                <button
+                    class="filter"
+                    onclick="filterVehiclesByStatus('manutencao', this)"
+                >
+
+                    Em Manutenção
+
+                </button>
+
+
+            </div>
+
+
+
+            <!-- =================================================
+                 LISTA DE VEÍCULOS
+
+                 O app.js vai buscar os veículos
+                 diretamente do JSON Server.
+            ================================================== -->
+
+            <div
+                class="vehicle-list"
+                id="vehicles-cards-container"
+            >
+
+                <!--
+                    Os veículos serão carregados
+                    automaticamente pelo app.js.
+                -->
+
+                <div class="loading-message">
+
+                    <p>
+                        Carregando veículos...
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </section>
+
+    </main>
+
+
+
+    <!-- =====================================================
+         JQUERY
+    ====================================================== -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js">
+    </script>
+
+
+
+    <!-- =====================================================
+         MATERIALIZE
+    ====================================================== -->
+
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js">
+    </script>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT DO PROJETO
+
+         IMPORTANTE:
+         carregar apenas UMA vez.
+    ====================================================== -->
+
+    <script src="js/app.js"></script>
+
+
+</body>
+
+</html>
