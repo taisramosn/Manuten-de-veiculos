@@ -14,25 +14,25 @@ O projeto será desenvolvido progressivamente ao longo da disciplina, utilizando
 
 Para acompanhar o desenvolvimento do projeto e suas decisões, estão disponíveis os seguintes documentos:
 
-- 📄 **[Documento de Requisitos](docs/prd.md)** — Escopo, funcionalidades e regras da aplicação.
-- 🏗️ **[Especificação Técnica](docs/architecture.md)** — Arquitetura, modelo de dados e estrutura técnica do sistema.
-- 🎨 **[Design System](docs/design-system.md)** — Identidade visual, cores, tipografia e componentes utilizados na aplicação.
-- 🖼️ **[Protótipo no Stitch](https://stitch.withgoogle.com/projects/2247964266907741447)** — Protótipo das telas e fluxo de navegação.
+* 📄 [**Documento de Requisitos**](https://github.com/taisramosn/Manuten-de-veiculos/blob/main/docs/prd.md) — Escopo, funcionalidades e regras da aplicação.
+* 🏗️ [**Especificação Técnica**](https://github.com/taisramosn/Manuten-de-veiculos/blob/main/docs/architecture.md) — Arquitetura, modelo de dados e estrutura técnica do sistema.
+* 🎨 [**Design System**](https://github.com/taisramosn/Manuten-de-veiculos/blob/main/docs/design-system.md) — Identidade visual, cores, tipografia e componentes utilizados na aplicação.
+* 🖼️ [**Protótipo no Stitch**](https://stitch.withgoogle.com/projects/2247964266907741447) — Protótipo das telas e fluxo de navegação.
 
 ---
 
 ## 🎨 Design
 
-A interface do CarCare foi desenvolvida a partir do protótipo elaborado no **Stitch**.
+A interface do CarCare foi desenvolvida a partir do protótipo feito no **Stitch**.
 
 O projeto utiliza o **Materialize CSS 1.0.0**, complementado por estilos CSS próprios para adaptar a identidade visual do CarCare.
 
 A aplicação possui uma interface responsiva, contemplando principalmente os ambientes:
 
-- 📱 Mobile;
-- 🖥️ Desktop.
+* 📱 Celular
+* 🖥️ Computador
 
-O projeto utiliza componentes do Materialize CSS para construção da interface, além de CSS personalizado para ajustes de layout, tipografia, espaçamentos e identidade visual.
+O projeto utiliza componentes do Materialize CSS para construção da interface, além de CSS personalizado para configurações de layout, tipografia, espaçamentos e identidade visual.
 
 ---
 
@@ -65,53 +65,54 @@ O projeto utiliza componentes do Materialize CSS para construção da interface,
 
 ### RA1 — Utilização de Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos
 
-* [X] **ID 01** — Prototipa interfaces adaptáveis para, no mínimo, os tamanhos de tela mobile e desktop, utilizando Figma, Quant UX, Sketch ou IA (Stitch).
-* [X] **ID 02** — Implementa layout responsivo com Framework CSS (Materialize CSS), utilizando Flexbox ou Grid do próprio framework.
-* [X] **ID 03** — Implementa layout responsivo com CSS puro, usando Flexbox ou Grid Layout.
-* [X] **ID 04** — Utiliza componentes prontos de um Framework CSS e componentes JavaScript do framework.
-* [X] **ID 05** — Cria layout fluido usando unidades relativas como vw, vh, %, em e rem.
-* [X] **ID 06** — Aplica um Design System consistente, incluindo cores, tipografia e padrões de componentes.
-* [ ] **ID 07** — Utiliza Sass (SCSS), aplicando variáveis, mixins e funções.
-* [X] **ID 08** — Aplica tipografia responsiva utilizando media queries mobile first ou `clamp()`.
-* [X] **ID 09** — Aplica técnicas de responsividade em imagens utilizando CSS.
-* [] **ID 10** — Otimiza imagens utilizando formatos modernos e carregamento adaptativo.
+* **ID 01** — Prototipa interfaces adaptáveis para, no mínimo, os tamanhos de tela mobile e desktop, utilizando Figma, Quant UX, Sketch ou IA (Stitch).
+* **ID 02** — Implemente layout responsivo com Framework CSS (Materialize CSS), utilizando Flexbox ou Grid do próprio framework.
+* **ID 03** — Implemente layout responsivo com CSS puro, usando Flexbox ou Grid Layout.
+* **ID 04** — Utiliza componentes prontos de um Framework CSS e componentes JavaScript do framework.
+* **ID 05** — Cria layout fluido usando unidades relativas como `vw`, `vh`, `%`, `em` e `rem`.
+* **ID 06** — Aplica um Design System consistente, incluindo cores, tipografia e padrões de componentes.
+* **ID 07** — Utiliza Sass (SCSS), aplicando variáveis, mixins e funções.
+* **ID 08** — Aplicação de tipografia responsiva utilizando media queries mobile first ou `clamp()`.
+* **ID 09** — Aplicação de técnicas de responsividade em imagens utilizando CSS.
+* [ ] **ID 10** — Otimiza imagens utilizando formatos modernos e carregamento adaptativo.
 
-### RA2 — Realizar tratamento de formulários e aplicar validações customizadas no lado cliente
+### RA2 — Realizar tratamento de formulários e aplicar validações personalizadas no lado cliente
 
-* [X] **ID 11** — Implementa validação HTML nativa em formulários.
-* [X] **ID 12** — Aplica expressões regulares (REGEX) para validações personalizadas.
-* [X] **ID 13** — Utiliza checkbox, radio e select para coleta de dados.
-* [X] **ID 14** — Implementa leitura e escrita no Web Storage utilizando localStorage/sessionStorage.
+* **ID 11** — Implementa validação HTML nativa em formulários.
+* **ID 12** — Aplicação de expressões regulares (REGEX) para validações personalizadas.
+* **ID 13** — Utiliza checkbox, radio e select para coleta de dados.
+* **ID 14** — Implementa leitura e escrita no Web Storage utilizando `localStorage`/`sessionStorage`.
 
 ### RA3 — Aplicar ferramentas para otimização do processo de desenvolvimento web
 
-* [X] **ID 15** — Configura ambiente com Node.js e NPM para gerenciamento de pacotes e dependências.
-* [X] **ID 16** — Utiliza boas práticas de versionamento no Git/GitHub e `.gitignore`.
-* [X] **ID 17** — Mantém um README.md padronizado conforme o template da disciplina, com checklist preenchido.
-* [X] **ID 18** — Organiza os arquivos do projeto de forma modular.
-* [ ] **ID 19** — Configura linters e formatadores, como ESLint e Prettier.
+* **ID 15** — Configurar ambiente com Node.js e NPM para gerenciamento de pacotes e dependências.
+* **ID 16** — Utiliza boas práticas de versionamento no Git/GitHub e `.gitignore`.
+* **ID 17** — Mantém um README.md padronizado conforme o modelo da disciplina, com checklist preenchido.
+* **ID 18** — Organiza os arquivos do projeto de forma modular.
+* **ID 19** — Configura linters e formatadores, como ESLint e Prettier.
 
 ### RA4 — Aplicar bibliotecas de funções e componentes em JavaScript para aprimorar a interatividade das páginas web
 
-* [X] **ID 20** — Utiliza jQuery para manipulação do DOM e interatividade.
-* [X] **ID 21** — Integra e configura um plugin jQuery relevante, como o jQuery Mask Plugin.
+* **ID 20** — Utiliza jQuery para manipulação do DOM e interatividade.
+* **ID 21** — Integra e configura um plugin jQuery relevante, como o jQuery Mask Plugin.
 
 ### RA5 — Efetuar requisições assíncronas para uma API falsa e APIs públicas, permitindo a obtenção e manipulação de dados de forma dinâmica
 
-* [X] **ID 22** — Realiza requisições assíncronas para uma API falsa, como JSON Server, para persistir dados de formulários.
-* [X] **ID 23** — Realiza requisições assíncronas para uma API falsa para exibir dados na página.
-* [X] **ID 24** — Realiza requisições assíncronas para APIs públicas reais, exibindo os dados e tratando erros.
+* **ID 22** — Realiza requisições assíncronas para uma API falsa, como JSON Server, para persistir dados de formulários.
+* **ID 23** — Realiza requisições assíncronas para uma API falsa para exibir dados na página.
+* **ID 24** — Realiza requisições assíncronas para APIs públicas reais, exibindo os dados e tratando erros.
 
+---
 
 ## 🌐 API Pública
 
-Para enriquecer o cadastro dos veículos com dados reais, o projeto utilizará a **FIPE API**.
+Para enriquecer o cadastro dos veículos com dados reais, o projeto utilizará a **API FIPE**.
 
 A API fornece dados relacionados à Tabela FIPE por meio de requisições REST, permitindo consultar informações de veículos como **marca, modelo, ano, combustível, código FIPE e preço de referência**.
 
-### 🔗 API escolhida
+### 🔗 API FIPE
 
-**FIPE API**
+**API FIPE:**
 
 https://fipe.api.br/
 
@@ -131,17 +132,17 @@ Ano
 Dados do veículo
 ```
 
-A integração com a API pública tem como objetivo evitar que todas as informações de marca e modelo precisem ser cadastradas manualmente.
+A integração com a API pública tem como objetivo evitar que todas as informações de marca e modelo sejam cadastradas manualmente.
 
-A persistência dos veículos cadastrados continuará sendo realizada pelo **JSON Server**, enquanto a FIPE API será utilizada como fonte externa de dados para complementar o cadastro.
+A persistência dos veículos cadastrados continuará sendo realizada pelo **JSON Server**, enquanto a API FIPE será utilizada como fonte externa de dados para complementar o cadastro.
 
-### Endpoints utilizados
+### Pontos finais utilizados
 
 A API disponibiliza uma estrutura de consulta por tipo de veículo, marca, modelo e ano. Para carros, a estrutura utilizada pelo projeto seguirá a API REST disponibilizada pela FIPE API.
 
 Exemplo de consulta de marcas:
 
-```text
+```http
 GET https://fipe.api.br/api/v2/cars/brands
 ```
 
@@ -149,7 +150,7 @@ A partir da marca selecionada, poderão ser consultados seus modelos e posterior
 
 ### Boas práticas
 
-Nenhuma chave de API ou informação sensível deverá ser adicionada diretamente ao código versionado.
+Nenhuma chave de API ou informação sensível deverá ser atribuída diretamente ao código versionado.
 
 O projeto mantém um arquivo de exemplo para configuração:
 
@@ -157,7 +158,7 @@ O projeto mantém um arquivo de exemplo para configuração:
 docs/script-example.js
 ```
 
-Configurações locais, quando necessárias, deverão permanecer em arquivo separado e incluídas no `.gitignore`.
+As configurações locais, quando possível, deverão permanecer em arquivo separado e incluídas no `.gitignore`.
 
 ---
 
@@ -187,17 +188,15 @@ http://localhost:3000/veiculos
 
 A API será utilizada para operações como:
 
-* Listar veículos;
-* Cadastrar veículos;
-* Consultar veículos;
-* Atualizar veículos;
-* Excluir veículos.
+* Listar veículos
+* Cadastrar veículos
+* Consultar veículos
+* Atualizar veículos
+* Excluir veículos
 
 As informações de manutenção permanecem relacionadas aos veículos na interface da aplicação e, nesta versão do projeto, não possuem uma API independente.
 
-```
-
-### Principais arquivos
+---
 
 ## 🏗️ Estrutura do Projeto
 
@@ -230,6 +229,8 @@ Manuten-de-veiculos/
 ├── package-lock.json
 ├── README.md
 └── .gitignore
+```
+
 ---
 
 ## 🖥️ Interface
@@ -250,14 +251,12 @@ As informações de **gastos e próximas manutenções** são relacionadas diret
 
 Apresenta uma visão geral das informações da frota, incluindo:
 
-* Quantidade de veículos;
-* Manutenções ativas;
-* Status dos veículos;
-* Veículos em manutenção;
-* Veículos prontos;
-* Resumo das manutenções.
-
----
+* Quantidade de veículos
+* Manutenções ativas
+* Status dos veículos
+* Veículos em manutenção
+* Veículos prontos
+* Resumo das manutenções
 
 ### 🚗 Veículos
 
@@ -265,19 +264,17 @@ Permite cadastrar, consultar e gerenciar os veículos.
 
 As informações do veículo incluem:
 
-* Marca;
-* Modelo;
-* Ano;
-* Placa;
-* Quilometragem;
-* Combustível;
-* Status do veículo.
+* Marca
+* Modelo
+* Ano
+* Placa
+* Quilometragem
+* Combustível
+* Status do veículo
 
 Durante o cadastro, a aplicação poderá utilizar a **FIPE API** para auxiliar na seleção das informações de marca, modelo e ano.
 
 Também será possível acessar as informações relacionadas às manutenções de cada veículo.
-
----
 
 ### 🔧 Manutenções
 
@@ -285,14 +282,14 @@ Permite registrar e acompanhar o histórico de manutenções realizadas nos veí
 
 Cada registro de manutenção pode conter:
 
-* Tipo de manutenção;
-* Data;
-* Quilometragem;
-* Serviço realizado;
-* Peças substituídas;
-* Valor gasto;
-* Observações;
-* Status da manutenção;
+* Tipo de manutenção
+* Data
+* Quilometragem
+* Serviço realizado
+* Peças substituídas
+* Valor gasto
+* Observações
+* Status da manutenção
 
 ---
 
@@ -302,11 +299,11 @@ Cada registro de manutenção pode conter:
 
 Antes de executar o projeto, é necessário possuir:
 
-* Navegador web;
-* Visual Studio Code;
-* Node.js;
-* NPM;
-* Git.
+* Navegador web
+* Visual Studio Code
+* Node.js
+* NPM
+* Git
 
 ---
 
@@ -328,7 +325,7 @@ cd Manuten-de-veiculos
 
 ## 2. Instalar as dependências
 
-Com o projeto aberto no terminal, executar:
+Com o projeto aberto no terminal, execute:
 
 ```bash
 npm install
@@ -372,24 +369,24 @@ Isso indica que o endpoint existe, mas ainda não existem veículos cadastrados.
 
 A aplicação deverá ser executada utilizando um servidor local.
 
-No Visual Studio Code, pode ser utilizado o **Live Server** para abrir o `index.html`.
+No Visual Studio Code, o **Live Server** pode ser usado para abrir o `index.html`.
 
-Após iniciar o servidor local, acessar a aplicação pelo endereço fornecido pelo Live Server.
+Após iniciar o servidor local, acesse o aplicativo pelo endereço fornecido pelo Live Server.
 
-> O JSON Server deve permanecer executando em um terminal enquanto a aplicação estiver utilizando a API de veículos.
+> ⚠️ O JSON Server deve permanecer executando em um terminal enquanto a aplicação utiliza a API de veículos.
 
 ---
 
 ## 5. Utilização da API pública
 
-Durante o desenvolvimento da funcionalidade de cadastro de veículos, a aplicação realizará requisições para a **FIPE API**.
+Durante o desenvolvimento da funcionalidade de cadastro de veículos, a aplicação realizará requisições para a **API FIPE**.
 
 A integração será utilizada para obter informações reais de veículos, como:
 
-* Marcas;
-* Modelos;
-* Anos;
-* Dados de referência do veículo.
+* Marcas
+* Modelos
+* Anos
+* Dados de referência do veículo
 
 A aplicação deverá tratar possíveis erros de comunicação com a API e apresentar uma resposta adequada ao usuário.
 
@@ -416,10 +413,11 @@ Utilizar CarCare
       ↓
 Consultar API pública quando necessário
 ```
+
 ---
 
 ## 👩‍💻 Autora
 
 **Taís Ramos Nascoski**
 
-Projeto desenvolvido para fins acadêmicos na disciplina de Desenvolvimento de Aplicações Web.
+Projeto desenvolvido para fins acadêmicos na disciplina de **Desenvolvimento de Aplicações Web**.
