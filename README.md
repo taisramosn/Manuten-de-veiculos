@@ -61,6 +61,48 @@ O projeto utiliza componentes do Materialize CSS para construção da interface,
 
 ---
 
+## ✅ Lista de Verificação | Indicadores de Desempenho (ID)
+
+### RA1 — Utilização de Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos
+
+* [X] **ID 01** — Prototipa interfaces adaptáveis para, no mínimo, os tamanhos de tela mobile e desktop, utilizando Figma, Quant UX, Sketch ou IA (Stitch).
+* [X] **ID 02** — Implementa layout responsivo com Framework CSS (Materialize CSS), utilizando Flexbox ou Grid do próprio framework.
+* [X] **ID 03** — Implementa layout responsivo com CSS puro, usando Flexbox ou Grid Layout.
+* [X] **ID 04** — Utiliza componentes prontos de um Framework CSS e componentes JavaScript do framework.
+* [X] **ID 05** — Cria layout fluido usando unidades relativas como vw, vh, %, em e rem.
+* [X] **ID 06** — Aplica um Design System consistente, incluindo cores, tipografia e padrões de componentes.
+* [ ] **ID 07** — Utiliza Sass (SCSS), aplicando variáveis, mixins e funções.
+* [X] **ID 08** — Aplica tipografia responsiva utilizando media queries mobile first ou `clamp()`.
+* [X] **ID 09** — Aplica técnicas de responsividade em imagens utilizando CSS.
+* [] **ID 10** — Otimiza imagens utilizando formatos modernos e carregamento adaptativo.
+
+### RA2 — Realizar tratamento de formulários e aplicar validações customizadas no lado cliente
+
+* [X] **ID 11** — Implementa validação HTML nativa em formulários.
+* [X] **ID 12** — Aplica expressões regulares (REGEX) para validações personalizadas.
+* [X] **ID 13** — Utiliza checkbox, radio e select para coleta de dados.
+* [X] **ID 14** — Implementa leitura e escrita no Web Storage utilizando localStorage/sessionStorage.
+
+### RA3 — Aplicar ferramentas para otimização do processo de desenvolvimento web
+
+* [X] **ID 15** — Configura ambiente com Node.js e NPM para gerenciamento de pacotes e dependências.
+* [X] **ID 16** — Utiliza boas práticas de versionamento no Git/GitHub e `.gitignore`.
+* [X] **ID 17** — Mantém um README.md padronizado conforme o template da disciplina, com checklist preenchido.
+* [X] **ID 18** — Organiza os arquivos do projeto de forma modular.
+* [ ] **ID 19** — Configura linters e formatadores, como ESLint e Prettier.
+
+### RA4 — Aplicar bibliotecas de funções e componentes em JavaScript para aprimorar a interatividade das páginas web
+
+* [X] **ID 20** — Utiliza jQuery para manipulação do DOM e interatividade.
+* [X] **ID 21** — Integra e configura um plugin jQuery relevante, como o jQuery Mask Plugin.
+
+### RA5 — Efetuar requisições assíncronas para uma API falsa e APIs públicas, permitindo a obtenção e manipulação de dados de forma dinâmica
+
+* [X] **ID 22** — Realiza requisições assíncronas para uma API falsa, como JSON Server, para persistir dados de formulários.
+* [X] **ID 23** — Realiza requisições assíncronas para uma API falsa para exibir dados na página.
+* [X] **ID 24** — Realiza requisições assíncronas para APIs públicas reais, exibindo os dados e tratando erros.
+
+
 ## 🌐 API Pública
 
 Para enriquecer o cadastro dos veículos com dados reais, o projeto utilizará a **FIPE API**.
@@ -153,33 +195,6 @@ A API será utilizada para operações como:
 
 As informações de manutenção permanecem relacionadas aos veículos na interface da aplicação e, nesta versão do projeto, não possuem uma API independente.
 
----
-
-## 🏗️ Estrutura do Projeto
-
-A organização inicial do projeto segue uma estrutura modular:
-
-```text
-Manuten-de-veiculos/
-│
-├── .gitignore
-├── README.md
-├── package.json
-├── package-lock.json
-├── index.html
-├── db.json
-│
-├── css/
-│   └── styles.css
-│
-├── js/
-│   └── script.js
-│
-└── docs/
-    ├── architecture.md
-    ├── design-system.md
-    ├── prd.md
-    └── script-example.js
 ```
 
 ### Principais arquivos
@@ -215,50 +230,6 @@ Manuten-de-veiculos/
 ├── package-lock.json
 ├── README.md
 └── .gitignore
-
----
-
-## ✅ Lista de Verificação | Indicadores de Desempenho (ID)
-
-### RA1 — Utilização de Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos
-
-* [X] **ID 01** — Prototipa interfaces adaptáveis para, no mínimo, os tamanhos de tela mobile e desktop, utilizando Figma, Quant UX, Sketch ou IA (Stitch).
-* [X] **ID 02** — Implementa layout responsivo com Framework CSS (Materialize CSS), utilizando Flexbox ou Grid do próprio framework.
-* [X] **ID 03** — Implementa layout responsivo com CSS puro, usando Flexbox ou Grid Layout.
-* [X] **ID 04** — Utiliza componentes prontos de um Framework CSS e componentes JavaScript do framework.
-* [X] **ID 05** — Cria layout fluido usando unidades relativas como vw, vh, %, em e rem.
-* [X] **ID 06** — Aplica um Design System consistente, incluindo cores, tipografia e padrões de componentes.
-* [ ] **ID 07** — Utiliza Sass (SCSS), aplicando variáveis, mixins e funções.
-* [X] **ID 08** — Aplica tipografia responsiva utilizando media queries mobile first ou `clamp()`.
-* [X] **ID 09** — Aplica técnicas de responsividade em imagens utilizando CSS.
-* [] **ID 10** — Otimiza imagens utilizando formatos modernos e carregamento adaptativo.
-
-### RA2 — Realizar tratamento de formulários e aplicar validações customizadas no lado cliente
-
-* [X] **ID 11** — Implementa validação HTML nativa em formulários.
-* [X] **ID 12** — Aplica expressões regulares (REGEX) para validações personalizadas.
-* [X] **ID 13** — Utiliza checkbox, radio e select para coleta de dados.
-* [X] **ID 14** — Implementa leitura e escrita no Web Storage utilizando localStorage/sessionStorage.
-
-### RA3 — Aplicar ferramentas para otimização do processo de desenvolvimento web
-
-* [X] **ID 15** — Configura ambiente com Node.js e NPM para gerenciamento de pacotes e dependências.
-* [X] **ID 16** — Utiliza boas práticas de versionamento no Git/GitHub e `.gitignore`.
-* [X] **ID 17** — Mantém um README.md padronizado conforme o template da disciplina, com checklist preenchido.
-* [X] **ID 18** — Organiza os arquivos do projeto de forma modular.
-* [ ] **ID 19** — Configura linters e formatadores, como ESLint e Prettier.
-
-### RA4 — Aplicar bibliotecas de funções e componentes em JavaScript para aprimorar a interatividade das páginas web
-
-* [X] **ID 20** — Utiliza jQuery para manipulação do DOM e interatividade.
-* [X] **ID 21** — Integra e configura um plugin jQuery relevante, como o jQuery Mask Plugin.
-
-### RA5 — Efetuar requisições assíncronas para uma API falsa e APIs públicas, permitindo a obtenção e manipulação de dados de forma dinâmica
-
-* [X] **ID 22** — Realiza requisições assíncronas para uma API falsa, como JSON Server, para persistir dados de formulários.
-* [X] **ID 23** — Realiza requisições assíncronas para uma API falsa para exibir dados na página.
-* [X] **ID 24** — Realiza requisições assíncronas para APIs públicas reais, exibindo os dados e tratando erros.
-
 ---
 
 ## 🖥️ Interface
