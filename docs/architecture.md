@@ -458,6 +458,7 @@ Verifique os dados e tente novamente.
 - Node.js
 - NPM
 - JSON Server
+- FIPE API v2
 - `db.json`
 
 ### Controle de versão
@@ -465,120 +466,20 @@ Verifique os dados e tente novamente.
 - Git
 - GitHub
 
-## 12. Organização dos Arquivos
+## 11.1 API Pública - FIPE API
 
-A estrutura principal do projeto é organizada da seguinte forma:
+O CarCare utiliza a **FIPE API v2** como API pública para consulta de informações relacionadas a veículos.
 
-```text
-Manuten-de-veiculos/
-│
-├── .gitignore
-├── README.md
-├── package.json
-├── package-lock.json
-├── index.html
-├── db.json
-│
-├── css/
-│   └── styles.css
-│
-├── js/
-│   └── script.js
-│
-└── docs/
-    ├── architecture.md
-    ├── design-system.md
-    └── prd.md
-```
+A API disponibiliza dados de veículos por meio de requisições REST e respostas em JSON, permitindo consultar informações como:
 
-### Responsabilidade dos arquivos
+- Marcas.
+- Modelos.
+- Anos.
+- Tipo de combustível.
+- Código FIPE.
+- Preço de referência.
 
-#### `index.html`
-
-Contém a estrutura principal da aplicação e os elementos da interface.
-
-#### `css/styles.css`
-
-Contém os estilos personalizados da aplicação.
-
-#### `js/script.js`
-
-Contém a lógica de interação da aplicação, navegação entre as telas e comunicação com a API.
-
-#### `db.json`
-
-Contém os veículos utilizados pelo JSON Server.
-
-#### `docs/prd.md`
-
-Contém os requisitos do produto e as histórias de usuário.
-
-#### `docs/design-system.md`
-
-Contém as regras visuais da aplicação.
-
-#### `docs/architecture.md`
-
-Contém a especificação técnica, arquitetura, modelo de dados, rotas da API e estrutura do armazenamento.
-
-## 13. Considerações Técnicas
-
-O CarCare é um projeto didático desenvolvido para praticar conceitos de desenvolvimento web, organização de código, consumo de APIs e persistência de dados.
-
-O JSON Server é utilizado como uma API simulada durante o desenvolvimento.
-
-A API é utilizada principalmente para o cadastro, consulta, atualização e exclusão dos veículos.
-
-A aplicação não possui:
-
-- Cadastro de usuários.
-- Login.
-- Autenticação.
-- Gerenciamento de contas.
-- Sistema de permissões.
-
-O proprietário é considerado o responsável pelo cadastro e gerenciamento dos veículos.
-
-As informações de manutenção são utilizadas para o acompanhamento dos veículos na interface, mas não possuem uma API independente.
-
-A próxima revisão é tratada como uma informação relacionada ao veículo.
-
-O sistema não precisa realizar cálculos complexos para determinar automaticamente a próxima revisão.
-
-## 14. Resumo da Arquitetura
+A consulta segue o fluxo:
 
 ```text
-CarCare
-│
-├── Interface
-│   ├── Dashboard
-│   ├── Veículos
-│   ├── Cadastro de Veículo
-│   ├── Detalhes do Veículo
-│   └── Manutenções
-│
-├── Front-end
-│   ├── HTML5
-│   ├── CSS3
-│   └── JavaScript
-│
-├── Interface Visual
-│   ├── Materialize CSS
-│   ├── Material Icons
-│   └── Inter
-│
-├── API
-│   └── JSON Server
-│       └── /veiculos
-│
-├── Dados
-│   └── db.json
-│       └── veiculos
-│
-└── Documentação
-    ├── prd.md
-    ├── design-system.md
-    └── architecture.md
-```
-
-A arquitetura do CarCare mantém uma estrutura simples, permitindo que o projeto demonstre o uso de uma aplicação web, consumo de API, persistência de dados e organização de documentação sem adicionar complexidade desnecessária.
+Marca → Modelo → Ano → Dados do veículo
