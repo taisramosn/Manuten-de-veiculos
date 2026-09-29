@@ -65,42 +65,42 @@ O projeto utiliza componentes do Materialize CSS para construção da interface,
 
 ### RA1 — Utilização de Frameworks CSS para estilização de elementos HTML e criação de layouts responsivos
 
-* **ID 01** — Prototipa interfaces adaptáveis para, no mínimo, os tamanhos de tela mobile e desktop, utilizando Figma, Quant UX, Sketch ou IA (Stitch).
-* **ID 02** — Implemente layout responsivo com Framework CSS (Materialize CSS), utilizando Flexbox ou Grid do próprio framework.
-* **ID 03** — Implemente layout responsivo com CSS puro, usando Flexbox ou Grid Layout.
-* **ID 04** — Utiliza componentes prontos de um Framework CSS e componentes JavaScript do framework.
-* **ID 05** — Cria layout fluido usando unidades relativas como `vw`, `vh`, `%`, `em` e `rem`.
-* **ID 06** — Aplica um Design System consistente, incluindo cores, tipografia e padrões de componentes.
-* **ID 07** — Utiliza Sass (SCSS), aplicando variáveis, mixins e funções.
-* **ID 08** — Aplicação de tipografia responsiva utilizando media queries mobile first ou `clamp()`.
-* **ID 09** — Aplicação de técnicas de responsividade em imagens utilizando CSS.
+*[ ] **ID 01** — Prototipa interfaces adaptáveis para, no mínimo, os tamanhos de tela mobile e desktop, utilizando Figma, Quant UX, Sketch ou IA (Stitch).
+*[ ] **ID 02** — Implemente layout responsivo com Framework CSS (Materialize CSS), utilizando Flexbox ou Grid do próprio framework.
+*[ ] **ID 03** — Implemente layout responsivo com CSS puro, usando Flexbox ou Grid Layout.
+*[ ] **ID 04** — Utiliza componentes prontos de um Framework CSS e componentes JavaScript do framework.
+*[ ] **ID 05** — Cria layout fluido usando unidades relativas como `vw`, `vh`, `%`, `em` e `rem`.
+*[ ] **ID 06** — Aplica um Design System consistente, incluindo cores, tipografia e padrões de componentes.
+*[ ] **ID 07** — Utiliza Sass (SCSS), aplicando variáveis, mixins e funções.
+*[ ] **ID 08** — Aplicação de tipografia responsiva utilizando media queries mobile first ou `clamp()`.
+*[ ] **ID 09** — Aplicação de técnicas de responsividade em imagens utilizando CSS.
 * [ ] **ID 10** — Otimiza imagens utilizando formatos modernos e carregamento adaptativo.
 
 ### RA2 — Realizar tratamento de formulários e aplicar validações personalizadas no lado cliente
 
-* **ID 11** — Implementa validação HTML nativa em formulários.
-* **ID 12** — Aplicação de expressões regulares (REGEX) para validações personalizadas.
-* **ID 13** — Utiliza checkbox, radio e select para coleta de dados.
-* **ID 14** — Implementa leitura e escrita no Web Storage utilizando `localStorage`/`sessionStorage`.
+*[ ] **ID 11** — Implementa validação HTML nativa em formulários.
+*[ ] **ID 12** — Aplicação de expressões regulares (REGEX) para validações personalizadas.
+*[ ] **ID 13** — Utiliza checkbox, radio e select para coleta de dados.
+*[ ] **ID 14** — Implementa leitura e escrita no Web Storage utilizando `localStorage`/`sessionStorage`.
 
 ### RA3 — Aplicar ferramentas para otimização do processo de desenvolvimento web
 
-* **ID 15** — Configurar ambiente com Node.js e NPM para gerenciamento de pacotes e dependências.
-* **ID 16** — Utiliza boas práticas de versionamento no Git/GitHub e `.gitignore`.
-* **ID 17** — Mantém um README.md padronizado conforme o modelo da disciplina, com checklist preenchido.
-* **ID 18** — Organiza os arquivos do projeto de forma modular.
-* **ID 19** — Configura linters e formatadores, como ESLint e Prettier.
+*[ ] **ID 15** — Configurar ambiente com Node.js e NPM para gerenciamento de pacotes e dependências.
+*[ ] **ID 16** — Utiliza boas práticas de versionamento no Git/GitHub e `.gitignore`.
+*[ ] **ID 17** — Mantém um README.md padronizado conforme o modelo da disciplina, com checklist preenchido.
+*[ ] **ID 18** — Organiza os arquivos do projeto de forma modular.
+*[ ] **ID 19** — Configura linters e formatadores, como ESLint e Prettier.
 
 ### RA4 — Aplicar bibliotecas de funções e componentes em JavaScript para aprimorar a interatividade das páginas web
 
-* **ID 20** — Utiliza jQuery para manipulação do DOM e interatividade.
-* **ID 21** — Integra e configura um plugin jQuery relevante, como o jQuery Mask Plugin.
+*[ ] **ID 20** — Utiliza jQuery para manipulação do DOM e interatividade.
+*[ ] **ID 21** — Integra e configura um plugin jQuery relevante, como o jQuery Mask Plugin.
 
 ### RA5 — Efetuar requisições assíncronas para uma API falsa e APIs públicas, permitindo a obtenção e manipulação de dados de forma dinâmica
 
-* **ID 22** — Realiza requisições assíncronas para uma API falsa, como JSON Server, para persistir dados de formulários.
-* **ID 23** — Realiza requisições assíncronas para uma API falsa para exibir dados na página.
-* **ID 24** — Realiza requisições assíncronas para APIs públicas reais, exibindo os dados e tratando erros.
+*[ ] **ID 22** — Realiza requisições assíncronas para uma API falsa, como JSON Server, para persistir dados de formulários.
+*[ ] **ID 23** — Realiza requisições assíncronas para uma API falsa para exibir dados na página.
+*[ ] **ID 24** — Realiza requisições assíncronas para APIs públicas reais, exibindo os dados e tratando erros.
 
 ---
 
