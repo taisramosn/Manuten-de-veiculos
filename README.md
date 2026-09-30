@@ -144,7 +144,6 @@ Modelo
 Ano
   ↓
 Dados do veículo
----
 
 ## 🏗️ Estrutura do Projeto
 
@@ -185,11 +184,13 @@ manutencao-de-veiculos/
 
 O CarCare possui uma interface responsiva organizada em três áreas principais:
 
-* 📊 **Dashboard** — Visão geral da frota e das manutenções.
-* 🚗 **Veículos** — Cadastro, consulta e gerenciamento dos veículos.
-* 🔧 **Manutenções** — Registro e acompanhamento do histórico de manutenções.
+- 📊 **Dashboard** — Visão geral da frota e dos registros de manutenção.
 
-As informações de **gastos e próximas manutenções** são relacionadas diretamente aos registros de manutenção, não sendo necessário criar telas separadas para essas informações.
+- 🚗 **Veículos** — Cadastro, consulta e gerenciamento dos veículos.
+
+- 🔧 **Manutenções** — Registro e acompanhamento do histórico de manutenções realizadas.
+
+As informações de **gastos** são relacionadas diretamente aos registros de manutenção, não sendo necessário criar telas separadas para essas informações.
 
 ---
 
@@ -199,12 +200,12 @@ As informações de **gastos e próximas manutenções** são relacionadas diret
 
 Apresenta uma visão geral das informações da frota, incluindo:
 
-* Quantidade de veículos
-* Manutenções ativas
-* Status dos veículos
-* Veículos em manutenção
-* Veículos prontos
-* Resumo das manutenções
+- Quantidade de veículos
+- Manutenções registradas
+- Status dos veículos
+- Veículos em manutenção
+- Veículos prontos
+- Resumo dos gastos com manutenção
 
 ### 🚗 Veículos
 
@@ -212,15 +213,15 @@ Permite cadastrar, consultar e gerenciar os veículos.
 
 As informações do veículo incluem:
 
-* Marca
-* Modelo
-* Ano
-* Placa
-* Quilometragem
-* Combustível
-* Status do veículo
+- Marca
+- Modelo
+- Ano
+- Placa
+- Quilometragem
+- Combustível
+- Status do veículo
 
-Durante o cadastro, a aplicação vai utilizar a **FIPE API** para auxiliar na seleção das informações de marca, modelo e ano.
+Durante o cadastro, a aplicação utiliza a **API FIPE** para auxiliar na seleção das informações de marca, modelo e ano.
 
 Também será possível acessar as informações relacionadas às manutenções de cada veículo.
 
@@ -230,13 +231,13 @@ Permite registrar e acompanhar o histórico de manutenções realizadas nos veí
 
 Cada registro de manutenção pode conter:
 
-* Tipo de manutenção
-* Data
-* Quilometragem
-* Serviço realizado
-* Valor gasto
-* Observações
-* Status da manutenção
+- Tipo de manutenção
+- Data
+- Quilometragem
+- Serviço realizado
+- Valor gasto
+- Observações
+- Status da manutenção
 
 ---
 
@@ -246,59 +247,84 @@ Cada registro de manutenção pode conter:
 
 Antes de executar o projeto, é necessário possuir:
 
-* Navegador web
-* Visual Studio Code
-* Node.js
-* NPM
-* Git
+- Navegador web
+- Visual Studio Code
+- Node.js
+- NPM
+- Git
 
 ---
 
-1. Clonar o projeto
+## 1. Clonar o projeto
 
 Clone o repositório utilizando o Git:
 
+```bash
 git clone https://github.com/taisramosn/manutencao-de-veiculos.git
+```
 
 Depois, entre na pasta do projeto:
 
+```bash
 cd manutencao-de-veiculos
-2. Instalar as dependências
+```
+
+---
+
+## 2. Instalar as dependências
 
 Execute:
 
+```bash
 npm install
-3. Iniciar o JSON Server
+```
+
+---
+
+## 3. Iniciar o JSON Server
 
 Execute:
 
+```bash
 npx json-server db.json --port 3000
+```
 
 O JSON Server ficará disponível em:
 
+```text
 http://localhost:3000
-4. Iniciar o servidor local
+```
 
-Abra o projeto no Visual Studio Code e utilize um servidor local, como a extensão Live Server.
+---
+
+## 4. Iniciar o servidor local
+
+Abra o projeto no Visual Studio Code e utilize um servidor local, como a extensão **Live Server**.
 
 Depois, abra a aplicação pelo endereço fornecido pelo servidor local.
 
-5. Utilizar o CarCare
+---
+
+## 5. Utilizar o CarCare
 
 Com os servidores em execução, será possível:
 
-Acessar o sistema;
-Realizar o login;
-Visualizar o Dashboard;
-Consultar os veículos;
-Cadastrar veículos;
-Consultar os detalhes dos veículos;
-Registrar e consultar manutenções;
-Consultar os dados da API FIPE durante o cadastro dos veículos.
-🔄 Fluxo de execução
+- Acessar o sistema;
+- Realizar o login;
+- Visualizar o Dashboard;
+- Consultar os veículos;
+- Cadastrar veículos;
+- Consultar os detalhes dos veículos;
+- Registrar e consultar manutenções;
+- Consultar os dados da API FIPE durante o cadastro dos veículos.
+
+---
+
+## 🔄 Fluxo de execução
 
 O fluxo básico para executar o projeto é:
 
+```text
 Clonar o projeto
       ↓
 Abrir no VS Code
