@@ -144,6 +144,15 @@ Modelo
 Ano
   ↓
 Dados do veículo
+```
+
+A integração com a API pública tem como objetivo evitar que todas as informações de marca e modelo sejam cadastradas manualmente.
+
+A persistência dos veículos cadastrados continuará sendo realizada pelo **JSON Server**, enquanto a API FIPE será utilizada como fonte externa de dados para complementar o cadastro.
+
+As configurações locais, quando possível, deverão permanecer em arquivo separado e incluídas no `.gitignore`.
+
+---
 
 ## 🏗️ Estrutura do Projeto
 
@@ -177,7 +186,6 @@ manutencao-de-veiculos/
 ├── README.md
 └── .gitignore
 ```
-
 ---
 
 ## 🖥️ Interface
